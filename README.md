@@ -1,3 +1,3 @@
 # RAP2
-A Galaxy-based gene prediction system
+A Galaxy-based gene function prediction system
 
