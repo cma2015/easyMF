@@ -1,0 +1,206 @@
+<tool id="spatial_course_analysis" name="Spatial-course analysis">
+  <description>
+
+  </description>
+  <requirements>
+      <requirement type="package" version="3.4.2">R</requirement>
+      <requirement type="package" version="1.2.0">getopt</requirement>
+  </requirements>
+
+  <command>	
+	Rscript /galaxy/tools/TAMF/spatial_course_analysis.R
+
+	--input1
+		$geneexpression
+	--input2
+        $amplitude
+    --input3
+        $pattern
+    --input4
+        $species
+    --output1 
+        $significant
+    --pdf1
+        $pheat
+;
+
+</command>
+
+  <inputs>	
+    <param name="geneexpression" type="data" label="prepared gene expression matrix" />
+    <param name="amplitude" type="data" label="amplitude matrix" />
+    <param name="pattern" type="data" label="pattern matrix" />
+    <param name="species" type="select" label="fetch the annotation information from EnsemblPlants" >
+        <option value="1">Aegilops tauschii genes (ASM34733v1)</option>
+        <option value="2">Amborella trichopoda genes (AMTR1.0)</option>
+        <option value="3">Arabidopsis lyrata genes (v.1.0)</option>
+        <option value="4">Arabidopsis thaliana genes (TAIR10)</option>
+        <option value="5">Beta vulgaris genes (RefBeet-1.2.2)</option>
+        <option value="6">Brachypodium distachyon genes (Brachypodium_distachyon_v3.0)</option>
+        <option value="7">Brassica napus genes (AST_PRJEB5043_v1)</option>
+        <option value="8">Brassica oleracea genes (BOL)</option>
+        <option value="9">Brassica rapa genes (Brapa_1.0)</option>
+        <option value="10">Chlamydomonas reinhardtii genes (Chlamydomonas_reinhardtii_v5.5)</option>
+        <option value="11">Chondrus crispus genes (ASM35022v2)</option>
+        <option value="12">Corchorus capsularis genes (CCACVL1_1.0)</option>
+        <option value="13">Cucumis sativus genes (ASM407v2)</option>
+        <option value="14">Cyanidioschyzon merolae genes (ASM9120v1)</option>
+        <option value="15">Daucus carota genes (ASM162521v1)</option>
+        <option value="16">Dioscorea rotundata genes (TDr96_F1_Pseudo_Chromosome_v1.0)</option>
+        <option value="17">Galdieria sulphuraria genes (ASM34128v1)</option>
+        <option value="18">Glycine max genes (Glycine_max_v2.0)</option>
+        <option value="19">Gossypium raimondii genes (Graimondii2_0)</option>
+        <option value="20">Helianthus annuus genes (HanXRQr1.0)</option>
+        <option value="21">Hordeum vulgare genes (IBSC v2)</option>
+        <option value="22">Leersia perrieri genes (Lperr_V1.4)</option>
+        <option value="23">Lupinus angustifolius genes (LupAngTanjil_v1.0)</option>
+        <option value="24">Manihot esculenta genes (Manihot esculenta v6)</option>
+        <option value="25">Medicago truncatula genes (MedtrA17_4.0)</option>
+        <option value="26">Musa acuminata genes (ASM31385v1)</option>
+        <option value="27">Nicotiana attenuata genes (NIATTr2)</option>
+        <option value="28">Oryza barthii genes (O.barthii_v1)</option>
+        <option value="29">Oryza brachyantha genes (Oryza_brachyantha.v1.4b)</option>
+        <option value="30">Oryza glaberrima genes (Oryza_glaberrima_V1)</option>
+        <option value="31">Oryza glumipatula genes (Oryza_glumaepatula_v1.5)</option>
+        <option value="32">Oryza longistaminata genes (O_longistaminata_v1.0)</option>
+        <option value="33">Oryza meridionalis genes (Oryza_meridionalis_v1.3)</option>
+        <option value="34">Oryza nivara genes (Oryza_nivara_v1.0)</option>
+        <option value="35">Oryza punctata genes (Oryza_punctata_v1.2)</option>
+        <option value="36">Oryza rufipogon genes (OR_W1943)</option>
+        <option value="37">Oryza sativa Indica Group genes (ASM465v1)</option>
+        <option value="38">Oryza sativa Japonica Group genes (IRGSP-1.0)</option>
+        <option value="39">Ostreococcus lucimarinus genes (ASM9206v1)</option>
+        <option value="40">Phaseolus vulgaris genes (PhaVulg1_0)</option>
+        <option value="41">Physcomitrella patens genes (Phypa V3)</option>
+        <option value="42">Populus trichocarpa genes (Pop_tri_v3)</option>
+        <option value="43">Prunus persica genes (Prunus_persica_NCBIv2)</option>
+        <option value="44">Selaginella moellendorffii genes (v1.0)</option>
+        <option value="45">Setaria italica genes (Setaria_italica_v2.0)</option>
+        <option value="46">Solanum lycopersicum genes (SL2.50)</option>
+        <option value="47">Solanum tuberosum genes (SolTub_3.0)</option>
+        <option value="48">Sorghum bicolor genes (Sorghum_bicolor_NCBIv3)</option>
+        <option value="49">Theobroma cacao genes (Theobroma_cacao_20110822)</option>
+        <option value="50">Trifolium pratense genes (Trpr)</option>
+        <option value="51">Triticum aestivum genes (IWGSC)</option>
+        <option value="52">Triticum dicoccoides genes (WEWSeq v.1.0)</option>
+        <option value="53">Triticum urartu genes (ASM34745v1)</option>
+        <option value="54">Vigna angularis genes (Vigan1.1)</option>
+        <option value="55">Vigna radiata genes (Vradiata_ver6)</option>
+        <option value="56">Vitis vinifera genes (12X)</option>
+        <option value="57"  selected="true">Zea mays genes (B73 RefGen_v4)</option>
+	</param>		
+
+  </inputs>  
+	 <stdio><exit_code range="1:" level="fatal" description="Error"/></stdio> 
+  <outputs>
+    <data name="significant" format="tabular" label="enrichment analysis for each tissue" help="enrichment analysis for each tissue" />   
+    <data name="pheat" format="pdf" label="spatial specific genes expression module" help="spatial specific genes expression module" />   
+  </outputs>
+
+
+    <help>
+.. class:: infomark
+
+**What it does**
+
+*Spatial-course analysis* identify the significantly differentially expressed genes at each tissue and enrichment functions
+
+
+-------------
+
+.. class:: infomark
+
+**Inputs**
+
+**prepared gene expression matrix** - the prepared gene expression matrix through the **Matrix preparation** tool
+
+.. csv-table:: 
+   :header: " ", "AL", "BETL", "CSE", "CZ"
+   :widths: 15, 10, 10, 10, 10
+
+   "Zm00001d027230", 0.116, 0.0336, 0.0846, 0.0656
+   "Zm00001d027231", 7.952, 1.067, 3.788, 3.027
+   "Zm00001d027232", 0.00997, 0.00337, 0, 0.00606
+   "Zm00001d027233", 0.00899, 0.00507, 0.00722, 0.00558
+
+|
+
+
+**amplitude matrix** - generated from the prepared gene expression matrix through **Matrix factorization** tool in the **History** panel
+  
+.. csv-table:: 
+   :header: " ", "NC1", "NC2", "NC3", "NC4"
+   :widths: 15, 10, 10, 10, 10
+
+   "Zm00001d027230", 0.356, 0.103, 0.357, 0.903
+   "Zm00001d027231", 4.310, 1.230, 7.122, 9.690
+   "Zm00001d027232", 0, 0.813, 0.0322, 0.0295
+   "Zm00001d027233", 0.0130, 0.0602, 0.0291, 0.0219
+
+|
+
+
+**pattern matrix** - generated from the prepared gene expression matrix through **Matrix factorization** tool in the **History** panel
+
+.. csv-table:: 
+   :header: " ", "NC1", "NC2", "NC3"
+   :widths: 10, 10, 10, 10
+
+   "AL", 7.194e-05, 1.349e-05, 0.442
+   "BETL", 6.484e-05, 1.638e-05, 1.778e-03
+   "CSE", 1.589e-05, 0, 1.090e-04
+   "CZ", 2.064e-05, 0, 4.796e-04
+
+|
+
+
+**species** - select the species to fetch the annotation inforamtion from EnsemblPlants
+
+
+
+-------------
+
+
+.. class:: infomark
+
+**Outputs**
+
+
+**enrichment analysis for each tissue**:
+
+
++--------+--------+---------------+------------------------------------------+
+| tissue | domain |   GO.ID       |  Term                                    |
++========+========+===============+==========================================+
+| | AL   | BP     | `GO:0005985`  |  sucrose metabolic process               |
++--------+--------+---------------+------------------------------------------+
+| | AL   | BP     | `GO:0007088`  |  regulation of mitotic nuclear division  |
++--------+--------+---------------+------------------------------------------+
+| | AL   | CC     | `GO:0016021`  |  integral component of membrane          |
++--------+--------+---------------+------------------------------------------+
+| | BETL | BP     | `GO:0071586`  | CAAX-box protein processing              |
++--------+--------+---------------+------------------------------------------+
+
+|
+
+
+**spatial specific genes expression module**:
+
+.. image:: static/spatial_specific_genes_expression_module.jpg
+    :width: 500 px
+    :scale: 50 %   
+    :align: center
+
+| 
+
+
+-------------
+
+|
+
+
+  </help>
+
+
+
+</tool>

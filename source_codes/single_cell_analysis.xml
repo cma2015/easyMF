@@ -1,0 +1,201 @@
+<tool id="single_cell_analysis" name="Single cell analysis">
+
+ <description>
+
+  </description>
+  <requirements>
+      <requirement type="package" version="3.4.2">R</requirement>
+      <requirement type="package" version="1.2.0">getopt</requirement>
+  </requirements>
+
+  <command>	
+	Rscript /galaxy/tools/TAMF/single_cell_analysis.R
+
+	--input1
+		$geneexpression	
+    --input4
+        $specscore
+    --input5
+        $Disturb.disturbcode
+    --input6
+        $Disturb.disturb
+    --input7
+        $cpu
+    --input8
+        $Decomposition.decompose
+
+    #if $Decomposition.decompose in ["4"]:
+        --input9
+            $Decomposition.am
+        --input10
+            $Decomposition.pm
+    #end if
+
+    --pdf1
+        $tsne
+    --output1
+        $celltype
+;
+
+</command>
+
+  <inputs>	
+    <param name="geneexpression" type="data" label="gene expression matrix" />  
+    <conditional name="Decomposition">
+			<param name="decompose" type="select" label="decomposition options">
+				<option value="1" selected="true">PCA</option>
+				<option value="2">ICA</option>
+				<option value="3">NMF</option>
+				<option value="4">User-specific</option>
+			</param>			
+			<when value="4">	
+				<param name="am" type="data" label="amplitude matrix" />
+				<param name="pm" type="data" label="pattern matrix" />
+			</when>
+	</conditional>	 
+	<param name="specscore" type="data" label="Spec score" />
+    <param name="cpu" type="text" value="2" label="cpu number" />
+    <conditional name="Disturb">	
+        <param name="disturbcode" type="select" label="disturb options" >
+            <option value="1">Yes</option>
+            <option value="2" selected="true">No</option>
+        </param>
+        <when value="1">
+            <param name="disturb" type="data" label="disturb genes" />
+        </when>
+    </conditional>
+
+  </inputs>  
+	 <stdio><exit_code range="1:" level="fatal" description="Error"/></stdio> 
+  <outputs>    
+    <data name="tsne" format="pdf" label="single cell type visulization" help="single cell type visulization" />   
+    <data name="celltype" format="tabular" label="identity cell type" help="identity cell type" />   
+  </outputs>
+
+
+    <help>
+.. class:: infomark
+
+**What it does**
+
+*Single cell analysis* is used to identity the type of the unknown single cell samples.
+
+
+-------------
+
+.. class:: infomark
+
+**Inputs**
+
+**gene expression matrix** - the gene count matrix of the single cell
+
+.. csv-table:: 
+   :header: " ", "AAGATGTTTTAA", "CCTCACCGATAA", "CAATCGTTTGTG"
+   :widths: 15, 10, 10, 10
+
+   "AT1G01010", 118, 36, 7
+   "AT1G01020", 5, 2, 3
+   "AT1G01030", 0, 0, 0
+   "AT1G01040", 1, 2, 1
+
+|
+
+
+**decomposition options** - Currently, we provide four options: **PCA**, **ICA**, **NMF**, **User-specific**
+
+
+**Spec score** - the **Spec score** of the known type of tissues:
+
+.. csv-table:: 
+   :header: " ", "Atrichoblast", "Columella", "Cortex", "Endodermis"
+   :widths: 15, 10, 10, 10, 10
+
+   "ORF25", 0, 0.127, 0, 0
+   "AT2G26550", 0, 0, 0, 0
+   "AT2G26570", 0, 0, 0.102, 0.591
+   "PSBA", 0, 0, 0.105, 0.105
+
+|
+
+
+**cpu number** - the cpu number to parallelly compute
+
+
+For **disturb options**, whether disturb genes should be filtered, default is **No**, if **Yes**, the **disturb genes** should be input:
+
++-------------+
+| Disturb     |
++=============+
+| AT2G26390   |
++-------------+
+| AT2G26400   |
++-------------+
+| AT2G26530   |
++-------------+
+| AT2G41640   |
++-------------+
+
+|
+
+
+
+-------------
+
+
+.. class:: infomark
+
+**Outputs**
+
+**single cell type visulization** 
+
+
+.. image:: static/singlecell1.jpg
+    :width: 300 px
+    :scale: 100 %   
+    :align: center
+
+
+.. image:: static/singlecell2.jpg
+    :width: 300 px
+    :scale: 100 %   
+    :align: center
+
+| 
+
+
+**identity cell type** - the identification of the unknown single cell samples:
+
+.. csv-table:: 
+   :header: "cell_name", "type"
+   :widths: 15, 10
+
+   "AAGATGTTTTAA", Trichoblast
+   "CCTCACCGATAA", Trichoblast
+   "GCGTTTGCCCTC", Cortext
+   "AACCTGGTATTG", Atrichoblast
+
+|
+
+
+
+
+-------------
+
+.. class:: warningmark
+
+**Note**
+
+* The **gene expression matrix** should't be processed through the **Matrix preparation**, since all the samples are need to be identified.
+
+
+-------------
+
+|
+
+
+  </help>
+
+
+
+</tool>
+

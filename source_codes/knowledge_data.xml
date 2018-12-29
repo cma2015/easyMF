@@ -1,0 +1,261 @@
+<tool id="knowledge_data" name="Knowledge data for functional gene discovery">
+  <description>
+  </description>
+  <requirements>
+      <requirement type="package" version="3.4.2">R</requirement>
+      <requirement type="package" version="1.2.0">getopt</requirement>
+  </requirements>
+
+  <command>	 
+    Rscript /galaxy/tools/TAMF/knowledge_data.R
+
+    --input1
+        1
+  
+    --input2
+        $amplitude
+    --input3
+        $cpu
+    --input4
+        $Calculate.calculate
+        #if $Calculate.calculate in ["1"]:
+            --input5
+                $Calculate.annotaSelf
+            --input6
+                $Calculate.annotaGene
+        #else
+            --input7
+                $Calculate.annotaFetch
+
+        #end if
+    --input8
+        $evidence
+
+    --output1
+        $gene2geneset
+    --output2
+        $functionalterm
+    --output3
+        $geneAnnota
+;
+
+
+</command>
+  <inputs>
+
+    <param name="amplitude" type="data" label="amplitude matrix" help="it is used for functional gene probabilities construction" />
+    <param name="cpu" type="text" value="2" label="cpu number" />				
+    <conditional name="Calculate">
+        <param name="calculate" type="select" label="functional gene annotation" >
+            <option value="2">fetch from EnsemblPlants</option>
+            <option value="1">upload</option>
+            
+        </param>
+        <when value="1">
+            <param name="annotaSelf" type="data" label="upload the functional gene annotation file" />	
+            <param name="annotaGene" type="data" label="upload the gene description file" />									
+        </when>
+        <when value="2">
+            <param name="annotaFetch" type="select" label="fetch the functional gene annotation file from EnsemblPlants" >
+                <option value="1">Aegilops tauschii genes (ASM34733v1)</option>
+                <option value="2">Amborella trichopoda genes (AMTR1.0)</option>
+                <option value="3">Arabidopsis lyrata genes (v.1.0)</option>
+                <option value="4" selected="true">Arabidopsis thaliana genes (TAIR10)</option>
+                <option value="5">Beta vulgaris genes (RefBeet-1.2.2)</option>
+                <option value="6">Brachypodium distachyon genes (Brachypodium_distachyon_v3.0)</option>
+                <option value="7">Brassica napus genes (AST_PRJEB5043_v1)</option>
+                <option value="8">Brassica oleracea genes (BOL)</option>
+                <option value="9">Brassica rapa genes (Brapa_1.0)</option>
+                <option value="10">Chlamydomonas reinhardtii genes (Chlamydomonas_reinhardtii_v5.5)</option>
+                <option value="11">Chondrus crispus genes (ASM35022v2)</option>
+                <option value="12">Corchorus capsularis genes (CCACVL1_1.0)</option>
+                <option value="13">Cucumis sativus genes (ASM407v2)</option>
+                <option value="14">Cyanidioschyzon merolae genes (ASM9120v1)</option>
+                <option value="15">Daucus carota genes (ASM162521v1)</option>
+                <option value="16">Dioscorea rotundata genes (TDr96_F1_Pseudo_Chromosome_v1.0)</option>
+                <option value="17">Galdieria sulphuraria genes (ASM34128v1)</option>
+                <option value="18">Glycine max genes (Glycine_max_v2.0)</option>
+                <option value="19">Gossypium raimondii genes (Graimondii2_0)</option>
+                <option value="20">Helianthus annuus genes (HanXRQr1.0)</option>
+                <option value="21">Hordeum vulgare genes (IBSC v2)</option>
+                <option value="22">Leersia perrieri genes (Lperr_V1.4)</option>
+                <option value="23">Lupinus angustifolius genes (LupAngTanjil_v1.0)</option>
+                <option value="24">Manihot esculenta genes (Manihot esculenta v6)</option>
+                <option value="25">Medicago truncatula genes (MedtrA17_4.0)</option>
+                <option value="26">Musa acuminata genes (ASM31385v1)</option>
+                <option value="27">Nicotiana attenuata genes (NIATTr2)</option>
+                <option value="28">Oryza barthii genes (O.barthii_v1)</option>
+                <option value="29">Oryza brachyantha genes (Oryza_brachyantha.v1.4b)</option>
+                <option value="30">Oryza glaberrima genes (Oryza_glaberrima_V1)</option>
+                <option value="31">Oryza glumipatula genes (Oryza_glumaepatula_v1.5)</option>
+                <option value="32">Oryza longistaminata genes (O_longistaminata_v1.0)</option>
+                <option value="33">Oryza meridionalis genes (Oryza_meridionalis_v1.3)</option>
+                <option value="34">Oryza nivara genes (Oryza_nivara_v1.0)</option>
+                <option value="35">Oryza punctata genes (Oryza_punctata_v1.2)</option>
+                <option value="36">Oryza rufipogon genes (OR_W1943)</option>
+                <option value="37">Oryza sativa Indica Group genes (ASM465v1)</option>
+                <option value="38">Oryza sativa Japonica Group genes (IRGSP-1.0)</option>
+                <option value="39">Ostreococcus lucimarinus genes (ASM9206v1)</option>
+                <option value="40">Phaseolus vulgaris genes (PhaVulg1_0)</option>
+                <option value="41">Physcomitrella patens genes (Phypa V3)</option>
+                <option value="42">Populus trichocarpa genes (Pop_tri_v3)</option>
+                <option value="43">Prunus persica genes (Prunus_persica_NCBIv2)</option>
+                <option value="44">Selaginella moellendorffii genes (v1.0)</option>
+                <option value="45">Setaria italica genes (Setaria_italica_v2.0)</option>
+                <option value="46">Solanum lycopersicum genes (SL2.50)</option>
+                <option value="47">Solanum tuberosum genes (SolTub_3.0)</option>
+                <option value="48">Sorghum bicolor genes (Sorghum_bicolor_NCBIv3)</option>
+                <option value="49">Theobroma cacao genes (Theobroma_cacao_20110822)</option>
+                <option value="50">Trifolium pratense genes (Trpr)</option>
+                <option value="51">Triticum aestivum genes (IWGSC)</option>
+                <option value="52">Triticum dicoccoides genes (WEWSeq v.1.0)</option>
+                <option value="53">Triticum urartu genes (ASM34745v1)</option>
+                <option value="54">Vigna angularis genes (Vigan1.1)</option>
+                <option value="55">Vigna radiata genes (Vradiata_ver6)</option>
+                <option value="56">Vitis vinifera genes (12X)</option>
+                <option value="57">Zea mays genes (B73 RefGen_v4)</option>
+            </param>						
+        </when>	
+            
+    </conditional>
+    <param name="evidence" type="select" label="evidence code" multiple="true" help="gold standard evidence code">
+                <option value="1">IBA</option>
+                <option value="2">IC</option>
+                <option value="3" selected="true">IDA</option>
+                <option value="4">IEA</option>
+                <option value="5" selected="true">IEP</option>
+                <option value="6" selected="true">IGI</option>
+                <option value="7" selected="true">IMP</option>
+                <option value="8" selected="true">IPI</option>
+                <option value="9">ISA</option>
+                <option value="10">ISM</option>
+                <option value="11">ISS</option>
+                <option value="12">NAS</option>
+                <option value="13">ND</option>
+                <option value="14">RCA</option>
+                <option value="15" selected="true">TAS</option>
+    </param>
+
+
+	
+  </inputs>  
+	<stdio><exit_code range="1:" level="fatal" description="Error"/></stdio> 
+  <outputs>
+	
+    <data name="gene2geneset" format="tabular" label="gene2function construction" help="functional gene probabilities construction" >
+		
+	</data>
+	<data name="functionalterm" format="tabular" label="golden standard functional terms information" help="golden standard functional terms information" >
+		
+	</data>
+    <data name="geneAnnota" format="tabular" label="gene description" help="gene description information" >
+		
+	</data>
+
+   
+
+  </outputs>
+
+
+    <help>
+.. class:: infomark
+
+**What it does**
+
+*Knowledge data for functional gene discovery* is used to generate functional gene probabilities construction for **functional gene discovery** sub-function
+
+-------------
+
+.. class:: infomark
+
+**Inputs**
+
+**amplitude matrix** - generated from the prepared gene expression matrix through **Matrix factorization** tool in the **History** panel
+ 
+  
+.. csv-table:: 
+   :header: " ", "NC1", "NC2", "NC3", "NC4"
+   :widths: 15, 10, 10, 10, 10
+
+   "AT1G01010", 0.080, -0.889, 1.504, 2.029
+   "AT1G01030", 1.338, 0.729, -0.113, -0.049
+   "AT1G01040", -0.465, -0.229, -0.247, -0.206
+   "AT1G01050", -1.674, 0.036, -0.047, -0.494
+
+|
+
+
+**cpu number** - the cpu number to parallelly compute
+
+**functional gene annotation** - Currently, we provide two options:  choose the **species** (automatic fetching from EnsemblPlants) in **fetch the functional gene annotation file from EnsemblPlants** window, or **upload** the functional gene annotation and gene description files, and select the **evidence code**. 
+
+
+-------------
+
+
+.. class:: infomark
+
+**Outputs**
+
+
+**gene2function construction** - functional gene probabilities construction (the numeric value represents each gene's functionally probability of each unit)
+
++--------------+--------------+--------------+
+| `GO:0000003` | `GO:0000038` | `GO:0000062` |
++==============+==============+==============+
+| AT1G01010    | 0.512        | 0.228        |
++--------------+--------------+--------------+
+| AT1G01030    | 0.427        | 0.219        |
++--------------+--------------+--------------+
+| AT1G01040    | 0.432        | 0.174        |
++--------------+--------------+--------------+ 
+
+|
+
+**golden standard functional terms information**:
+
++--------------------------------------+
+| Terms in Biological Process : 860    |
++--------------------------------------+
+| Total GO terms : 1284                |
++--------------------------------------+
+| Genes in Biological Process : 6841   |
++--------------------------------------+
+| Total Genes : 9235                   |  
++--------------------------------------+
+
+|
+
+**gene description**:
+
++-------------------+---------------------------------------------------------------+
+| ensembl_gene_id   | description                                                   |
++===================+===============================================================+
+| AT3G11415         |                                                               |
++-------------------+---------------------------------------------------------------+
+| AT1G31258         | other RNA [Source:TAIR;Acc:AT1G31258]                         |
++-------------------+---------------------------------------------------------------+
+| AT3G62370         | Heme binding protein [Source:UniProtKB/TrEMBL;Acc:Q9LZQ3]     |
++-------------------+---------------------------------------------------------------+
+
+|
+
+
+-------------
+
+.. class:: warningmark
+
+**Note**
+
+* The elapsed time increase with increase of the data size.
+
+* The knowledge data is used for **Functional gene discovery** tool, and select them in the **History** panel.
+
+-------------
+
+|
+
+
+  </help>
+
+</tool>

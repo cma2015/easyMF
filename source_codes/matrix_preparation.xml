@@ -1,0 +1,246 @@
+<tool id="matrix_prepatation" name="Matrix preparation">
+  <description>
+  </description>
+  <requirements>
+      <requirement type="package" version="3.4.2">R</requirement>
+      <requirement type="package" version="1.2.0">getopt</requirement>
+  </requirements>
+
+  <command>	 
+
+	Rscript /galaxy/tools/TAMF/matrix_preparation.R 
+
+	--input1
+		$Source.source
+	--input3
+		$cpu
+	#if $Source.source in ["1"]:
+		--input2
+			/galaxy/tools/TAMF/test_data/default_ara_gene_expression_functional.txt				
+	#elif $Source.source in ["2"]:
+		--input2
+			$Source.upload
+	#elif $Source.source in ["3"]:
+		--input2
+			$Source.gsm
+	#else
+		--input2
+			$Source.words			
+	#end if	
+
+
+	#if $Source.source in ["4"]:
+		--output3
+			$GSM
+	#else
+		--pdf1 
+			$statistics
+		--output1
+			 $geneExp
+		--output2
+			 $information 
+	#end if	
+;
+
+</command>
+
+  <inputs>
+	<param name="cpu" type="text" value="2" label="cup number" />
+	<conditional name="Source">
+			<param name="source" type="select" label="gene expression profile options">
+				<option value="1">Arabidopsis thaliana (Default)</option>
+				<option value="2">User-specific</option>
+				<option value="3">Fetch from GSM</option>
+				<option value="4">Fetch from Key Words</option>
+			</param>
+			<when value="2">	
+				<param name="upload" type="data" label="upload gene expression profile" />	
+			</when>
+			<when value="3">
+				<param name="gsm" type="data" value="GSM accession information" />
+			</when>
+			<when value="4">
+				<param name="words" type="text" value="Arabidopsis,root,hair-cell" area="true" />
+			</when>			
+	</conditional>	
+	
+  </inputs>  
+	<stdio><exit_code range="1:" level="fatal" description="Error"/></stdio> 
+  <outputs>
+	<data name="statistics" format="pdf" label="statistics analysis on gene expression matrix" help="Statistics analysis conducted on samples to filter low quality samples" >
+		<filter>Source['source'] == '1' or Source['source'] == '2' or Source['source'] == '3'</filter>
+	</data>
+	<data name="geneExp" format="tabular" label="prepared gene expression matrix" help="high quality gene expression matrix for TAMF analysis" >	
+		<filter>Source['source'] == '1' or Source['source'] == '2' or Source['source'] == '3'</filter>
+	</data>
+	<data name="information" format="tabular" label="process information" help="process information of the quality control" >
+		<filter>Source['source'] == '1' or Source['source'] == '2' or Source['source'] == '3'</filter>
+	</data>
+	<data name="GSM" format="tabular" label="GSM information" help="GSM information to filter" >
+		<filter>Source['source'] == '4'</filter>
+	</data>
+  </outputs>
+
+
+    <help>
+.. class:: infomark
+
+**What it does**
+
+*Matrix preparation* provides four sub-functions to get the high quality gene expression matrix:
+
+* **Arabidopsis thaliana (Default)**: a built-in gene expression in *Arabidopsis thaliana* from He *et al*., 2016
+
+* **User-specific**: upload the gene expression by user
+
+* **Fetch from GSM**: fetch the gene expression matrix through the GSM accessions. 
+
+* **Fetch from Key words**: fetch the GSM accessions through the GEO by providing the **Key word** seperated by comma or new line.
+
+
+
+-------------
+
+.. class:: infomark
+
+**Inputs**
+
+**cpu number** - the cpu number to parallelly compute
+
+**gene expression profile options** - Currently, we provide four sub-functions to get the gene expression matrix:
+
+*  **Arabidopsis thaliana (Default)**: the row represents the genes and the column represents the samples
+
+* .. csv-table:: 
+   :header: " ", "Sample1", "Sample2", "Sample3", "Sample4"
+   :widths: 15, 10, 10, 10, 10
+
+   "AT1G01010", 6.155, 6.690, 6.345, 6.07
+   "AT1G01030", 6.320, 6.325, 5.950, 5.730
+   "AT1G01040", 9.495, 9.275, 8.710, 9.135
+   "AT1G01050", 11.730, 11.540, 11.650, 11.620
+ 
+|
+
+* **User-specific** - upload gene expression data based on the above format through *Upload File* tool the **Get Data** section, then choose it through the **History** panel
+
+|
+
+* **Fetch from GSM** - fetch the gene expression matrix through the GSM accessions:
+
+* 
+	+-------------+------------+-----------+
+	| Tissue      | Sample	   |  Platform |                  
+	+=============+============+===========+
+	| Trichoblast | GSM226524  |  GPL198   |
+	+-------------+------------+-----------+
+	| Cortex      | GSM184895  |  GPL198   |
+	+-------------+------------+-----------+
+	| Protophloem | GSM226523  |  GPL198   |
+	+-------------+------------+-----------+
+
+|
+
+* **Fetch from Key words** - fetch the GSM accessions through the GEO by providing the **Key words** seperated by comma or new line 
+
+* 
+	+-------------+----------------------------------------+
+	+            Key words                                 +
+	+--------------+---------------------------------------+
+	| new line     | comma                                 |
+	+==============+=======================================+
+	| | Arabidopsis| Arabidopsis,root,hair-cell            |
+	| | root       |                                       |
+	| | hair-cell  |                                       |
+	+--------------+---------------------------------------+
+
+|
+
+
+
+-------------
+
+
+.. class:: infomark
+
+**Outputs**
+
+**statistics analysis on gene expression matrix**
+
+.. image:: static/PCA_sample.jpg
+   :width: 500 px
+   :scale: 50 %   
+   :align: center
+
+| 
+
+**prepared gene expression matrix**
+
+.. csv-table:: 
+   :header: " ", "Sample1", "Sample2", "Sample3", "Sample4"
+   :widths: 15, 10, 10, 10, 10
+
+   "AT1G01010", 6.155, 6.690, 6.345, 6.07
+   "AT1G01030", 6.320, 6.325, 5.950, 5.730
+   "AT1G01040", 9.495, 9.275, 8.710, 9.135
+   "AT1G01050", 11.730, 11.540, 11.650, 11.620
+
+|
+
+
+**process information**: process information of the quality control
+
++-------------+------------------------------------------------------------+
++The sample Sample55 have duplicate sample(s): Sample833, we averaged them +
++-------------+------------------------------------------------------------+
++Finally, the following samples are removed:                               +
++-------------+------------------------------------------------------------+
++Sample55                                                                  +
++-------------+------------------------------------------------------------+
++Sample833                                                                 +
++-------------+------------------------------------------------------------+
+
+|
+
+**GSM accession** - the GSM accession information fetched from the **Key words** to filter
+
++--------------+---------------------------------------+---------------+
+| accession    | title                                 |  Platform     |
++==============+=======================================+===============+
+| | GSM351427  | Anther at An1, biological rep1        |   GPL2025     |
++--------------+---------------------------------------+---------------+
+| | GSM351428  | Anther at An1, biological rep2        |   GPL2025     |
++--------------+---------------------------------------+---------------+
+| | GSM351429  | Anther at An1, biological rep3        |   GPL2025     |
++--------------+---------------------------------------+---------------+
+
+
+-------------
+
+.. class:: infomark
+
+**Citation**
+
+* He F1, Yoo S, et al: Large-scale atlas of microarray data reveals the distinct expression landscape of different tissues in Arabidopsis.
+
+
+-------------
+
+.. class:: warningmark
+
+**Note**
+
+* The elapsed time increase with increase of the data size.
+
+* The **Key words** should be connected by **-** not by the **space**, for example, the **hair-cell** can be recognized, however the **hair cell** can't be recognized.
+
+* After fetch the **GSM** accession based on the **Key words** from GEO database, the user should filter the need accessions and keep what they want, then fill in these **GSM** accessions to prepare the gene expression matrix.
+
+-------------
+
+|
+
+
+  </help>
+
+</tool>
