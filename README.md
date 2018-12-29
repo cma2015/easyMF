@@ -6,14 +6,14 @@
 
 <img src="https://github.com/cma2015/TAMF/blob/master/TAMF_images/TAMF_workflow.jpg" width = "80%" alt="TAMF" align=center/>
 
-## How to use CAFU
+## How to use TAMF
 
-- More details about how to use CAFU are presented at https://github.com/cma2015/TAMF/blob/master/tutorial/TAMF-user-manual.md
+- More details about how to use TAMF are presented at https://github.com/cma2015/TAMF/blob/master/tutorial/TAMF-user-manual.md
 - Test datasets can de downloaded from https://github.com/cma2015/TAMF/tree/master/test_data
 
 
 ## How to access help
-* If users encounter any bugs or issues, feel free to leave a message at Github [issues](<https://github.com/cma2015/CAFU/issues>). We will try our best to deal with all issues as soon as possible.
+* If users encounter any bugs or issues, feel free to leave a message at Github [issues](<https://github.com/cma2015/TAMF/issues>). We will try our best to deal with all issues as soon as possible.
 * In addition, if any suggestions are available, feel free to contact: __Wenlong Ma__ <mawenlong_nwsuaf@163.com> or __Jingjing Zhai__ <zhaijingjing603@gmail.com> 
 
 
