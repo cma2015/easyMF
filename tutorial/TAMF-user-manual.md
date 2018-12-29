@@ -1,5 +1,5 @@
 ### Brief introduction
-- TAMF is designed to provide an easily accessible large-scale transcriptomic data analysis platform to help botanists even with little bioinformatics background completing complicated processing with terminal-based applications that are not user-friendly. It smoothly integrated the TAMF tools into Galaxy scientific analysis platform to provide web-based, easy-to-use and thoroughly tested tools enable users perfom comparative analysis. By integrating three major matrix factorization algorithmes (PCA [principle component analysis]; ICA [independent component analysis]; NMF [non-negative matrix factorization]), TAMF enables users perform a series of analysis based on pattern matrix (PM) and amplitude matrix (AM). For PM-based deep mining, four sub-modules are implemented to perform **Clustering analysis**, **single-cell analysis** (identify cell-types in single-cell RNA-Seq), **Spatial-course analysis** (illuminate the spatial dependency of sampled regions/voxels), and **Time-course analysis** (track the gene expression dynamics across temporal variations along the developmental stages); For AM-based deep mining, **Functional gene discovery** and **Pathway activity analysis** are provided to perform gene function prediction, gain biological insights into GWAS result, as well as active pathways, respectively. The TAMF project is hosted on GitHub (https://github.com/cma2015/TAMF) and can be accessed from http://bioinfo.nwafu.edu.cn:4002. In addition, in order to enable large-scale analysis, we also provided a standardized Docker image: [TAMF Docker image](https://hub.docker.com/r/malab/TAMF/).
+- TAMF is designed to provide an easily accessible large-scale transcriptomic data analysis platform to help botanists even with little bioinformatics background completing complicated processing with terminal-based applications that are not user-friendly. It smoothly integrated the TAMF tools into Galaxy scientific analysis platform to provide web-based, easy-to-use and thoroughly tested tools enable users perfom comparative analysis. By integrating three major matrix factorization algorithms (PCA [principle component analysis]; ICA [independent component analysis]; NMF [non-negative matrix factorization]), TAMF enables users perform a series of analysis based on pattern matrix (PM) and amplitude matrix (AM). For PM-based deep mining, four sub-modules are implemented to perform **Clustering analysis**, **Single-cell analysis** (identify cell-types in single-cell RNA-Seq), **Spatial-course analysis** (illuminate the spatial dependency of sampled regions/voxels), and **Time-course analysis** (track the gene expression dynamics across temporal variations along the developmental stages); For AM-based deep mining, **Functional gene discovery** and **Pathway activity analysis** are provided to perform gene function prediction, gain biological insights into GWAS result, as well as active pathways, respectively. The TAMF project is hosted on GitHub (https://github.com/cma2015/TAMF) and can be accessed from http://bioinfo.nwafu.edu.cn:4002. In addition, in order to enable large-scale analysis, we also provided a standardized Docker image: [TAMF Docker image](https://hub.docker.com/r/malab/TAMF/).
 
 
 ### TAMF Docker image installation
@@ -94,15 +94,15 @@
 
   ![Upload regular file](https://github.com/cma2015/TAMF/blob/master/TAMF_images/13.png)
 
-- **Arabidopsis thaliana (Default)**
+- ***Arabidopsis thaliana* (Default)**
   
-  For this function, we provided a built-in gene expression with 1096 samples and 20356 genes in Arabidopsis thaliana obtained from [He et *al*., 2016](https://onlinelibrary.wiley.com/doi/abs/10.1111/tpj.13175), see following figure to see how to use this function:
+  For this function, we provided a built-in gene expression with 1096 samples and 20356 genes in *Arabidopsis thaliana* obtained from [He et *al*., 2016](https://onlinelibrary.wiley.com/doi/abs/10.1111/tpj.13175), see following figure to see how to use this function:
 
   ![Upload regular file](https://github.com/cma2015/TAMF/blob/master/TAMF_images/5.png)  
 
 
 - **Fetch from Key Words** 
-  In this function, users can input **Key words** they are interested, then TAMF will fetch the GSM accessions through **Key Words** input by users (see following pictures to see corresponding input and output). 
+  In this function, users can input **Key Words** they are interested, then TAMF will fetch the GSM accessions through **Key Words** input by users (see following pictures to see corresponding input and output). 
 
     **Input:** **words**: input the key words in the box.
 
@@ -114,7 +114,7 @@
 
 
 ###  MATRIX FACTORIZATION
-Matrix factorization (MF) is a class of unsurpervised learning methods to decomposing a high-dimensional matrix into a low-dimensional matrix. In this module, we implemented three major MF algorithms (PCA, Principle Component Analysis; ICA, Independent component analysis; NMF, non-negative matrix factorization) to implement matrix factorization, however, to maximize TAMF's usage, user-specific methods are also supported.
+Matrix factorization (MF) is a class of unsurpervised learning methods to decompose a high-dimensional matrix into a low-dimensional matrix. In this module, we implemented three major MF algorithms (PCA, principle component analysis; ICA, independent component analysis; NMF, non-negative matrix factorization) to implement matrix factorization, however, to maximize TAMF's usage, user-specific methods are also supported.
 
 - **For PCA, ICA or NMF**
 To run this module, the only required input is the prepated gene expression matrix, here, we use the file ```default_ara_prepared_gene_expression.txt``` located in the fold ```/your directory/TAMF/test_data/Matrix factorization/``` to show how to use this module (see following figure). 
@@ -150,11 +150,11 @@ MF will generate amplitude matrix and pattern matrix. In AM-based deep mining, t
 
   This module is used to generate knowledge data (**functional gene probabilities construction** and **gene description**) required for sub-function (**Biological interpretation of GWAS result** ) in next module (**Functional gene discovery**). To run this module, the following parameters are required:
 
-  **Input 1:** **amplitude matrix** generated from the prepared gene expression matrix through Matrix factorization tool. Here, we use the file ```default_ara_PCA_amplitude_matrix.txt``` located in directory ```/your directory/TAMF/test_data/Knowledge data/```, and users can select them in the **History** panel.
+  **Input 1:** **amplitude matrix** generated from the prepared gene expression matrix through **Matrix factorization** module. Here, we use the file ```default_ara_PCA_amplitude_matrix.txt``` located in directory ```/your directory/TAMF/test_data/Knowledge data/```, and users can select them in the **History** panel.
 
   **Input 2:** **cpu number** to parallelly compute
 
-  **Input 3:** **functional gene annotation**. Currently, we provide two options: i): choose the **species** in **fetch the functional gene annotation file from EnsemblPlants** window (automaticly fetching from EnsemblPlants); ii): upload the **functional gene annotation** ```default_ara_functional_annota.txt``` and **gene description** ```default_ara_gene_description.txt``` located in the directory ```/your directory/TAMF/test_data/Knowledge data/``` and select them in the **History** panel. 
+  **Input 3:** **functional gene annotation**. Currently, we provide two options: i): choose the **species** in **fetch the functional gene annotation file from EnsemblPlants** window (automatically fetch from EnsemblPlants); ii): upload the **functional gene annotation** ```default_ara_functional_annota.txt``` and **gene description** ```default_ara_gene_description.txt``` located in the directory ```/your directory/TAMF/test_data/Knowledge data/``` and select them in the **History** panel. 
 
   **Input 4:** **evidence code**. Golden standard evidence codes need to be selected (default are IDA, IEP, IGI, IMP, IPI, TAS).  
   
@@ -183,11 +183,11 @@ This module is used to perform functional gene discovery. Currently, we provide 
 
 For this module, the following inputs are required:
 
-**Input 1:** **amplitude matrix** generated from the prepared gene expression matrix through Matrix factorization tool. Here, we use the file ```default_ara_PCA_amplitude_matrix.txt``` located in directory ```/your directory/TAMF/test_data/Functional gene discovery/```, and users can select them in the **History** panel.
+**Input 1:** **amplitude matrix** generated from the prepared gene expression matrix through **Matrix factorization** module. Here, we use the file ```default_ara_PCA_amplitude_matrix.txt``` located in directory ```/your directory/TAMF/test_data/Functional gene discovery/```, and users can select them in the **History** panel.
 
 **Input 2:** **cpu number** to parallelly compute
 
-Then, select the functional gene dicsovery options to run. Currently, we provide two sub-functions:
+Then, select the functional gene dicsovery option to run. Currently, we provide two sub-functions:
 
 - **new candidates of a gene set**
 
@@ -210,11 +210,11 @@ Then, select the functional gene dicsovery options to run. Currently, we provide
   
   For this function, three inputs are required including:
 
-  **Input 3:** **SNPMapGene GWAS result**, a transformed GWAS result (the SNPs map to genes) data generated from a csv format (internal by comma) file (the raw GWAS data) through an R function [SNPMapGene.R](https://github.com/cma2015/RAP2/blob/master/SNPMapGene.R). Upload files (```default_ara_SNPMapGene.txt```) in directory ```/your directory/TAMF/test_data/Functional gene discovery/``` and select them in the **History** panel. 
+  **Input 3:** **SNPMapGene GWAS result**, a transformed GWAS result (the SNPs map to genes) data generated from a csv format (internal by comma) file (the raw GWAS data) through an R function [SNPMapGene.R](https://github.com/cma2015/RAP2/blob/master/SNPMapGene.R). Upload file (```default_ara_SNPMapGene.txt```) in directory ```/your directory/TAMF/test_data/Functional gene discovery/``` and select them in the **History** panel. 
 
   **Input 4:** **significant level** default is the 1e-05
 
-  **Input 5:** **functional gene probabilities construction**, select the way to obtain the functional gene probabilities construction. Currently, we provide two options: **Default (Arabidopsis thaliana genes (TAIR10))** or **User-specific**  generated from the **Knowledge data** module ((```default_ara_gene2geneset.txt```) and (```default_ara_gene_description.txt```) in directory ```/your directory/TAMF/test_data/Functional gene discovery/``` )).
+  **Input 5:** **functional gene probabilities construction**, select the way to obtain the functional gene probabilities construction. Currently, we provide two options: **Default (*Arabidopsis thaliana* genes (TAIR10))** or **User-specific**  generated from the **Knowledge data** module ((```default_ara_gene2geneset.txt```) and (```default_ara_gene_description.txt```) in directory ```/your directory/TAMF/test_data/Functional gene discovery/``` )).
 
   ![Upload regular file](https://github.com/cma2015/TAMF/blob/master/TAMF_images/28.png)
 
@@ -269,7 +269,7 @@ Then, select the functional gene dicsovery options to run. Currently, we provide
 ### PM-BASED DEEP MINING
 #### Clustering analysis
 
-  This module is used to automatically cluster the samples and return the clustered sample information.
+  This module is used to automatically cluster the samples and return the clustered samples' information.
   
   To run this function, two inputs are required including: 
 
@@ -295,7 +295,7 @@ Then, select the functional gene dicsovery options to run. Currently, we provide
 
   **Input 1:** **cpu number** to parallelly compute
 
-  **Input 2:** **known cell type prepared gene expression matrix** generated from **Matrix preparation**. Upload file (```default_ara_gene_expression.txt```) in directory ```/your directory/TAMF/test_data/Knowledge data/```, and select it in the **History** panel.    
+  **Input 2:** **known cell type prepared gene expression matrix** generated from **Matrix preparation** module. Upload file (```default_ara_gene_expression.txt```) in directory ```/your directory/TAMF/test_data/Knowledge data/```, and select it in the **History** panel.    
   
   ![Upload regular file](https://github.com/cma2015/TAMF/blob/master/TAMF_images/43.png)
 
@@ -345,7 +345,7 @@ Then, select the functional gene dicsovery options to run. Currently, we provide
 
   **Input 3**: The **pattern matrix** generated through **Matrix factorization** module. Upload file (```default_maize_NMF_pattern_matrix.txt```) in directory ```/your directory/TAMF/test_data/Spatial-course analysis/```, and select it in the **History** panel.  
 
-  **Input 4**: Select the **species** to **fetch the annotation inforamtion from EnsemblPlants**  
+  **Input 4**: Select the **species** to **fetch the annotation information from EnsemblPlants**  
 
   ![nucleic-acid feature](https://github.com/cma2015/TAMF/blob/master/TAMF_images/45.png)
 
@@ -371,13 +371,13 @@ Then, select the functional gene dicsovery options to run. Currently, we provide
   
   **Input 2**: The **amplitude matrix** generated through **Matrix factorization** module. Upload file (```default_maize_NMF_amplitude_matrix.txt```) in directory ```/your directory/TAMF/test_data/Time-course analysis/```, and select it in the **History** panel.
 
-  **Input 3**: The **pattern matrix** generated through **Matrix factorization** module. Upload file (```default_maize_NMF_pattern_matrix.txt```) in directory ```/your directory/TAMF/test_data/Time cell analysis/```, and select it in the **History** panel.  
+  **Input 3**: The **pattern matrix** generated through **Matrix factorization** module. Upload file (```default_maize_NMF_pattern_matrix.txt```) in directory ```/your directory/TAMF/test_data/Time-course analysis/```, and select it in the **History** panel.  
 
-  **Input 4**: The **developmental information of the samples**. Upload file (```default_maize_sample_stage.txt```) in directory ```/your directory/TAMF/test_data/Time cell analysis/```, and select it in the **History** panel.   
+  **Input 4**: The **developmental information of the samples**. Upload file (```default_maize_sample_stage.txt```) in directory ```/your directory/TAMF/test_data/Time-course analysis/```, and select it in the **History** panel.   
 
   **Input 5**: **cpu number** to parallelly compute   
 
-  **Input 6**: Select the **species** to **fetch the annotation inforamtion from EnsemblPlants**  
+  **Input 6**: Select the **species** to **fetch the annotation information from EnsemblPlants**  
 
   ![nucleic-acid feature](https://github.com/cma2015/TAMF/blob/master/TAMF_images/48.png)
 
