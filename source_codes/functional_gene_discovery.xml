@@ -328,7 +328,7 @@
   * **User-specific** - select the **gene2function construction** and **gene description** generated through **Knowledge data** tool in the **History** panel, or upload these data on the same format
 
 
-.. _SNPMapGene.R: https://github.com/cma2015/RAP2/blob/master/SNPMapGene.R
+.. _SNPMapGene.R: https://github.com/cma2015/TAMF/blob/master/SNPMapGene.R
 
 
 -------------
