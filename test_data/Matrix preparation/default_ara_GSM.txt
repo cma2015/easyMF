@@ -1,0 +1,4 @@
+Tissue	Sample	Platform
+Trichoblast	GSM226524	GPL198
+Atrichoblast	GSM133989	GPL198
+Atrichoblast	GSM133990	GPL198
