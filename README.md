@@ -1,3 +1,3 @@
-# RAP2
-A Galaxy-based gene function prediction system
+# TAMP
+A flexible framework for large-scale Transcriptome Analysis using Matrix Factorization
 
