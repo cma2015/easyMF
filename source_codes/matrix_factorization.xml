@@ -1,4 +1,4 @@
-<tool id="matrix_factorization" name="Matrix factorization">
+<tool id="matrix_factorization" name="Matrix factorization" version="17.09">
   <description>
   </description>
   <requirements>
