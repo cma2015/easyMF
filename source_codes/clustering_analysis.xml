@@ -1,4 +1,4 @@
-<tool id="clustering_analysis" name="Clustering analysis">
+<tool id="clustering_analysis" name="Clustering analysis" version="17.09">
 <description>
   </description>
   <requirements>
