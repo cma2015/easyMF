@@ -1,4 +1,4 @@
-<tool id="knowledge_data" name="Knowledge data for functional gene discovery">
+<tool id="knowledge_data" name="Knowledge data for functional gene discovery" version="17.09">
   <description>
   </description>
   <requirements>
