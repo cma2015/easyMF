@@ -1,4 +1,4 @@
-<tool id="matrix_prepatation" name="Matrix preparation">
+<tool id="matrix_prepatation" name="Matrix preparation" version="17.09">
   <description>
   </description>
   <requirements>
