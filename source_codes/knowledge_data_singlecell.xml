@@ -1,4 +1,4 @@
-<tool id="knowledge_data_singlecell" name="Knowledge data for single cell analysis">
+<tool id="knowledge_data_singlecell" name="Knowledge data for single cell analysis" version="17.09">
   <description>
   </description>
   <requirements>
