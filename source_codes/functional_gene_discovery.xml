@@ -1,4 +1,4 @@
-<tool id="functional_gene_discovery" name="Functional gene discovery">
+<tool id="functional_gene_discovery" name="Functional gene discovery" version="17.09">
   <description>
   </description>
   <requirements>
