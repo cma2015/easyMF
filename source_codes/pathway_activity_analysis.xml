@@ -1,4 +1,4 @@
-<tool id="pathway_activity_analysis" name="Pathway activity analysis">
+<tool id="pathway_activity_analysis" name="Pathway activity analysis" version="17.09">
   <description>
   </description>
   <requirements>
