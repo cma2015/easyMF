@@ -8,7 +8,7 @@
 
 ## How to use easyMF
 
-- More details about how to use easyMF are presented at https://github.com/cma2015/easyMF/blob/master/tutorial/TAMF-user-manual.md
+- More details about how to use easyMF are presented at https://github.com/cma2015/easyMF/tree/master/tutorial
 - Test datasets can de downloaded from https://github.com/cma2015/easyMF/tree/master/test_data
 
 
