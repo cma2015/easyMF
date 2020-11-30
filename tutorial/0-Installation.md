@@ -55,7 +55,7 @@ easyMF is a user-friendly web platform that aims to facilitate biological discov
 - Once Docker is installed successfully, you will see the following message:
   
 
-![00](/easyMF_images/00_docker.png)
+![00](./easyMF_images/00_docker.png)
 
 - **Step 2**: easyMF installation from Docker Hub
 ```bash
@@ -70,4 +70,4 @@ $ bash /home/galaxy/run.sh
 
 Then, easyMF local server can be accessed via http://localhost:8080
 
-![00](/easyMF_images/00_welcome_to_easyMF.png)
+![00](./easyMF_images/00_welcome_to_easyMF.png)
