@@ -163,7 +163,7 @@ Zm00001d053636,Zm00001d053632,Zm00001d053630,...,Zm00001d053635
 
 - **Area under the self-ranked curve (AUSR) plot**: A plot of ratio (*Ra*) along the *y* axis versus self-rank along the *x* axis, where rank represents the ranks of all positive genes, *Ra*(*l*) represents the ratio of ranks lower than a pre-defined level of *l*.
 
-  ![06_00](/easyMF_images/06_00_Functional_gene_discovery.png)
+  ![06_00](./easyMF_images/06_00_Functional_gene_discovery.png)
 
 
 #### How to use this function
@@ -174,11 +174,11 @@ Zm00001d053636,Zm00001d053632,Zm00001d053630,...,Zm00001d053635
 
   **Step 1**: upload test data in directory `Test_data/03_Metagene-based_Deep_Mining_Using_AM` to history panel;
 
-  ![06-01](/easyMF_images/06_01_Functional_gene_discovery.png)
+  ![06-01](./easyMF_images/06_01_Functional_gene_discovery.png)
 
   **Step 2** input the corresponding files and appropriate parameters, then run the function.
 
-  ![06_02](/easyMF_images/06_02_Functional_gene_discovery.png)
+  ![06_02](./easyMF_images/06_02_Functional_gene_discovery.png)
 
 #### Running time
 
@@ -267,11 +267,11 @@ Pathway activity inference can be used to examine the pathway activity for any g
 
   **Step 1**: upload test data in directory `Test_data/03_Metagene-based_Deep_Mining_Using_AM` to history panel;
 
-  ![07_01](/easyMF_images/07_01_Pathway_activity_inference.png)
+  ![07_01](./easyMF_images/07_01_Pathway_activity_inference.png)
 
   **Step 2** input the corresponding files and appropriate parameters, then run the function.
 
-  ![07_02](/easyMF_images/07_02_Pathway_activity_inference.png)
+  ![07_02](./easyMF_images/07_02_Pathway_activity_inference.png)
 
 #### Running time
 
