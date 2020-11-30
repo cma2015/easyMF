@@ -118,7 +118,7 @@ For **Obtain RNA-Seq data**
 
 - The following screenshot shows us how to download genome sequences and annoatation using easyMF.
 
-	![1-1](/easyMF_images/01_Obtain_genome_sequences_and_annotation.png)
+	![1-1](./easyMF_images/01_Obtain_genome_sequences_and_annotation.png)
 	
 - The following screenshot shows us how to download RNA-Seq data using easyMF.
 
