@@ -2,7 +2,7 @@
 
 <div align="center">(version 1.0)</div>
 
-easyMF is a user-friendly web platform that aims to facilitate biological discovery from large-scale transcriptome data through matrix factorization (MF). It offers several functional tools for gene expression matrix generation, and metagene-based exploratory analysis including sample clustering, signature gene identification, functional gene discovery, subtype cell detection, and pathway activity inference.
+easyMF is a user-friendly web platform that aims to facilitate biological discovery from large-scale transcriptome data through matrix factorization (MF). It offers several functional tools for gene expression matrix generation, expression matrix factorization, and metagene-based exploratory analysis including sample clustering, signature gene identification, functional gene discovery, subtype cell detection, and pathway activity inference.
 
 - easyMF project is hosted on https://github.com/cma2015/easyMF.
 - easyMF docker image is available in https://hub.docker.com/r/malab/easymf.
@@ -13,7 +13,7 @@ easyMF is a user-friendly web platform that aims to facilitate biological discov
 
 ## 0. Metagene-based Deep Mining Using PM
 
-Pattern matrix (AM), a matrix with metagenes in rows and samples in columns, describes sample-level relationships. In current version of easyMF, users can make use of PM for sample clustering, temporal and spatial transcriptome analysis, and subtype cell detection.
+Pattern matrix (AM), a matrix with samples in rows and metagenes in columns , describes sample-level relationships. In current version of easyMF, users can make use of PM for sample clustering, temporal and spatial transcriptome analysis, and subtype cell detection.
 
 This module consists of three functions: **Sample Clustering Analysis**, **Temporal-spatial Analysis**, and **Subtype Cell Detection**.
 
@@ -100,40 +100,81 @@ This module consists of three functions: **Sample Clustering Analysis**, **Tempo
 
 ## 1. Sample Clustering Analysis
 
-In the current version, easyMF provides six optional algorithms (mclust, apcluster, SSE, fpc, vegan , and gap) to cluster samples using PM coefficients. The clusters are visualized in plots, as well as tables, providing a quick overview of the relationships between samples.
+In the current version, easyMF provides six optional algorithms (mclust, apcluster, SSE, fpc, vegan , and gap) to cluster samples using PM coefficients. The cluster result is visualized in plots and tables, providing a quick overview of the relationships among samples.
 
 #### Inputs
 
-- **Pattern matrix**:  A pattern matrix with metagenes in rows and samples in columns.
+- **Pattern matrix**:  A pattern matrix with samples in rows and metagenes in columns. Here is an example:
+
+|          | Metagene 1 | Metagene 2 | ...  | Metagene 4 |
+| :------- | :--------- | :--------- | :--- | ---------- |
+| Sample 1 | -2.081     | 0.663      | ...  | -0.711     |
+| Sample 2 | -2.114     | 0.711      | ...  | -0.757     |
+| ...      | ...        | ...        | ...  | ...        |
+| Sample 4 | -2.185     | 0.671      | ...  | -0.719     |
 
 - **Cluster algorithms**: easyMF provides six cluster algorithms to be cluster samples including mclust, apcluster, SSE, fpc, vegan, and gap.
 
-  **Note**: easyMF supports multi-selection for different algorithms.
+  **mclust**: mclust implements model-based clustering using parameterized finite Gaussian mixture models. Models are estimated by Expectation Maximization (EM) algorithm initialized through hierarchical model-based agglomerative clustering. The optimal model is then selected according to Bayesian information criterion (BIC).
+  
+  **apcluster**: affinity propagation clusters data using a set of real-valued pairwise data point similarities as input. It iterates and searches for clusters maximizing an objective net similarity function.
+  
+  **SSE**: SSE calculates sum of square error based on k-means algorithm, and selects the best number of clusters based on inflection point of the residuals.
+  
+  **fpc**: fpc optimums average silhouette width, partitioning around medoids with estimation of cluster number.
+  
+  **vegan**: vegan is a cascade k-means partitioning using a range of *k* values. It generates the optimal cluster based on Calinski-Harabasz criterion.
+  
+  **gap**: gap calculates a goodness of clustering measure of the gap statistic for estimating the number of clusters.
+  
+  ```
+  NOTE: easyMF supports multi-selection for different algorithms.
+  ```
 
 #### Outputs
 
 - **cluster visulization**:  A dot plot of the clustering result.
-- **cluster information**: A cluster of the samples in each selected method.
+
+​     ![1-1](../assets/img/1-1.png)
+
+- **cluster information**: Sample cluster results for specific algorithms.
+
+|          | mclust | apcluster |
+| :------- | :----- | --------- |
+| Sample1  | 1      | 18        |
+| Sample7  | 7      | 18        |
+| Sample11 | 3      | 21        |
+| Sample15 | 7      | 14        |
 
 #### How to use this function
 
-- The following screenshot shows us how to implement functional gene discovery using easyMF.
+- Test datum for this function is `01_Pattern_matrix` in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM`.
 
-  ![1-1](../assets/img/1-1.png)
+- The following screenshot shows us how to cluster samples using easyMF.
+
+  **Step 1**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
+
+  ![08-01](/easyMF_images/08_01_Sample_clustering.png)
+
+​       **Step 2** input the corresponding files and appropriate parameters, then run the function.       ![08-02](/easyMF_images/08_02_Sample_clustering.png)
+
+#### Running time
+
+This step will cost ~ 15s for the test data.
 
 
 
 ## 2. Temporal-spatial Analysis
 
-easyMF can be used to determine the extent to which genes change over time in response to perturbations (e.g., developmental time), and does so by integrating gene expression values, and gene- and sample-level relationships. It can also be used to identify signature genes dominated at specific compartments of the transcriptomes with spatial resolution in individual tissue samples (spatial transcriptomes).
+easyMF can be used to determine the extent to which genes change over time in response to perturbations (e.g., developmental time) and identify signature genes dominated at specific compartments with spatial resolution in individual tissue samples (spatial transcriptomes).
 
 #### Inputs
 
 In **Data** section
 
 - **Gene expression matrix**: A gene expression matrix generated by the module **Matrix Preparation**.
-- **Amplitude matrix**: An amplitude matrix decomposed by the gene expression matrix input.
-- **Pattern matrix**: A pattern matrix decomposed by the gene expression matrix input.
+- **Amplitude matrix**: An amplitude matrix with genes in rows and metagenes in columns decomposed by the input gene expression matrix .
+- **Pattern matrix**: A pattern matrix  with samples in rows and metagenes in columns decomposed by the input gene expression matrix .
 - **Sample information**: Sample information containing development stages or spatial compartments.
 
 In **Parameters** section
@@ -144,17 +185,43 @@ In **Parameters** section
 
 #### Outputs
 
-- **Signature genes of each metagene**: Summary of signature genes in each metagene, which contains **Metagene**, **Gene ID**, and **Gene description**.
-- **GO enrichment analysis of each metagene**: Summary of GO enrichment results of each metagene.
+- **Signature genes of each metagene**: Summary of signature genes in each metagene. Each column shows **Metagene ID**, **Gene ID**, and **Gene description**.
+
+| Metagene ID | Gene ID        | Gene description                    |
+| :---------- | :------------- | :---------------------------------- |
+| Metagene1   | Zm00001d020505 | DNA glycosylase superfamily protein |
+| Metagene2   | Zm00001d012083 | Thioredoxin F-type chloroplastic    |
+| Metagene3   | Zm00001d033585 | Leaf permease1                      |
+
+- **GO enrichment analysis of each metagene**: Summary of GO enrichment results of signature genes in each metagene.
+
+| Metagene ID | Type | GO         | Term                      | Annotated | Significant | Expected | elimFisher | Significant gene                                            |
+| :---------- | :--- | :--------- | :------------------------ | :-------- | :---------- | :------- | :--------- | :---------------------------------------------------------- |
+| Metagene1   | BP   | GO:0042445 | hormone metabolic process | 91        | 6           | 1.65     | 0.00624    | Zm00001d011117;Zm00001d032223;Zm00001d039174;Zm00001d039650 |
+
 - **Visualization of metagenes**: Hierarchical clustering analysis of pattern matrix.
+
+​      ![1-1](../assets/img/1-1.png)
 
 #### How to use this function
 
-- The following screenshot shows us how to implement temporal-spatial analysis using easyMF.
+- Test data for this function are in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` including `02_Gene_expression_matrix`, `02_Amplitude_matrix`, `01_Pattern_matrix`, and `02_Sample_information`.
 
-  ![1-1](../assets/img/1-1.png)
+- The following screenshot shows us how to implement temporal-spatial transcriptome analysis using easMF.
 
-  
+  **Step 1**: upload test data in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` to history panel;
+
+  ![09_01](/easyMF_images/09_01_Temporal-spatial_transcriptome_analysis.png)
+
+   **Step 2** input the corresponding files and appropriate parameters, then run the function.       
+
+  ![09-02](/easyMF_images/09_02_Temporal-spatial_transcriptome_analysis.png)
+
+#### Running time
+
+This step will cost ~ 5 mins for the test data.
+
+
 
 ## 3. Subtype Cell Detection
 
@@ -164,20 +231,115 @@ Single-cell RNA-Seq, which measures gene expressions at the level of a single ce
 
 - **Gene expression matrix**: Gene count matrix of the single cell.
 
-- **Decomposition options**: Currently, easyMF provides three algorithms to decompose gene expression matrix including **PCA**, **ICA**, and **NMF**.
+<table class="fl-table">
+  <thead>
+    <tr>
+      <th width="20%"></th>
+      <th width="20%">AAGATGTTTTAA</th>
+      <th width="20%">CCTCACCGATAA</th>
+      <th width="20%">...</th>
+      <th width="20%">CAATCGTTTGTG</th>
+  </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AT1G01010</td>
+          <td>118</td>
+          <td>36</td>
+          <td>...</td>
+          <td>7</td>
+      </tr>
+      <tr>
+          <td>AT1G01020</td>
+          <td>5</td>
+          <td>2</td>
+          <td>...</td>
+          <td>3</td>
+      </tr>
+      <tr>
+          <td>AT1G01030</td>
+          <td>0</td>
+          <td>0</td>
+          <td>...</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+          <td>...</td>
+      </tr>
+      <tr>
+          <td>AT1G01040</td>
+          <td>1</td>
+          <td>2</td>
+          <td>...</td>
+          <td>1</td>
+      </tr>
+
+- **Decomposition options**: Currently, easyMF provides three algorithms to decompose single-cell gene expression matrix including **PCA**, **ICA**, and **NMF**.
 
 - **Spec score**: Spec score of the known type of tissues. Here's an example:
 
-  | Atrichoblast | Columella | Cortex | Endodermis |       |
-  | :----------- | :-------- | :----- | :--------- | ----- |
-  | ORF25        | 0         | 0.127  | 0          | 0     |
-  | AT2G26550    | 0         | 0      | 0          | 0     |
-  | AT2G26570    | 0         | 0      | 0.102      | 0.591 |
-  | PSBA         | 0         | 0      | 0.105      | 0.105 |
+  |           | Atrichoblast | Columella | Cortex | Endodermis |
+  | :-------- | :----------- | :-------- | :----- | ---------- |
+  | ORF25     | 0            | 0.127     | 0      | 0          |
+  | AT2G26550 | 0            | 0         | 0      | 0          |
+  | AT2G26570 | 0            | 0         | 0.102  | 0.591      |
+  | PSBA      | 0            | 0         | 0.105  | 0.105      |
 
-In addition, **Spec score** can also be obtained through a known tissue expression matrix.
+​       In addition, **Spec score** can also be obtained through a known tissue expression matrix.
 
 #### Outputs
 
-- **Single cell type visualization**
-- **Cell type detection result**: Summary of cell type detection results.
+- **t-SNE dimensional reduction of single cells**
+
+- **Cell type detection result**:
+
+<table class="fl-table">
+  <thead>
+    <tr>
+      <th width="20%">Cell_name</th>
+      <th width="20%">type</th>
+  </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AAGATGTTTTAA</td>
+          <td>Trichoblast</td>
+      </tr>
+      <tr>
+          <td>CCTCACCGATAA</td>
+          <td>Trichoblast</td>
+      </tr>
+      <tr>
+          <td>GCGTTTGCCCTC</td>
+          <td>Cortext</td>
+      </tr>
+      <tr>
+          <td>...</td>
+          <td>...</td>
+      </tr>
+      <tr>
+          <td>AACCTGGTATTG</td>
+          <td>Atrichoblast</td>
+      </tr>
+
+#### How to use this function
+
+- Test data for this function are in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` including `03_Single-cell_gene_expression_matrix`, and `03_Spec_score`.
+
+- The following screenshot shows us how to detect cell type for single-cell RNA-Seq data using easMF.
+
+  **Step 1**: upload test data in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` to history panel;
+
+  ![10_01](/easyMF_images/10_01_subtype_cell_detection.png)
+
+   **Step 2** input the corresponding files and appropriate parameters, then run the function.      
+
+  ![10_02](/easyMF_images/10_02_subtype_cell_detection.png)
+
+#### Running time
+
+This step will cost ~ 30s for the test data.
