@@ -55,10 +55,11 @@ easyMF is a user-friendly web platform that aims to facilitate biological discov
 - Once Docker is installed successfully, you will see the following message:
   
 
-![00](./easyMF_images/00_docker.png)
-
 - **Step 2**: easyMF installation from Docker Hub
 ```bash
+
+![00](./easyMF_images/00_docker.png)
+
 # pull latest easyMF Docker image from docker hub
 $ docker pull malab/easyMF
 ```
