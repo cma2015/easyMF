@@ -135,8 +135,6 @@ In the current version, easyMF provides six optional algorithms (mclust, apclust
 
 - **cluster visulization**:  A dot plot of the clustering result.
 
-​     ![1-1](../assets/img/1-1.png)
-
 - **cluster information**: Sample cluster results for specific algorithms.
 
 |          | mclust | apcluster |
@@ -154,7 +152,7 @@ In the current version, easyMF provides six optional algorithms (mclust, apclust
 
   **Step 1**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
 
-  ![08-01](/easyMF_images/08_01_Sample_clustering.png)
+  ![08-01](./easyMF_images/08_01_Sample_clustering.png)
 
 ​       **Step 2** input the corresponding files and appropriate parameters, then run the function.       ![08-02](/easyMF_images/08_02_Sample_clustering.png)
 
@@ -211,11 +209,11 @@ In **Parameters** section
 
   **Step 1**: upload test data in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` to history panel;
 
-  ![09_01](/easyMF_images/09_01_Temporal-spatial_transcriptome_analysis.png)
+  ![09_01](./easyMF_images/09_01_Temporal-spatial_transcriptome_analysis.png)
 
    **Step 2** input the corresponding files and appropriate parameters, then run the function.       
 
-  ![09-02](/easyMF_images/09_02_Temporal-spatial_transcriptome_analysis.png)
+  ![09-02](./easyMF_images/09_02_Temporal-spatial_transcriptome_analysis.png)
 
 #### Running time
 
@@ -334,11 +332,11 @@ Single-cell RNA-Seq, which measures gene expressions at the level of a single ce
 
   **Step 1**: upload test data in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` to history panel;
 
-  ![10_01](/easyMF_images/10_01_subtype_cell_detection.png)
+  ![10_01](./easyMF_images/10_01_subtype_cell_detection.png)
 
    **Step 2** input the corresponding files and appropriate parameters, then run the function.      
 
-  ![10_02](/easyMF_images/10_02_subtype_cell_detection.png)
+  ![10_02](./easyMF_images/10_02_subtype_cell_detection.png)
 
 #### Running time
 
