@@ -244,9 +244,3 @@ For **Removing batch effects**
 #### Running time
 
 This step will cost ~ 10s for the test data. 
-
-
-
-
-
-
