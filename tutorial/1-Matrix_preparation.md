@@ -17,7 +17,7 @@ Matrix factorization is typically started with an input of a gene expression mat
 
 The gene expression matrix can be automatically generated from raw reads using a bioinformatics pipeline (see following figure).
 
-![Figure S1](/easyMF_images/The_bioinformatics_pipeline_for_the_generation_of_a gene_expression_matrix_from_RNA-Seq data.png)
+![Figure S1](./easyMF_images/The_bioinformatics_pipeline_for_the_generation_of_a gene_expression_matrix_from_RNA-Seq data.png)
 
 This module consists of three functions: **Data Retrieval**, **Expression Matrix Generation** and **Expression Quality Control**.
 
@@ -126,13 +126,13 @@ For **Obtain RNA-Seq data**
 	
 	**Step 2**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
 	
-	![1-1](/easyMF_images/02_01_Obtain_RNA-Seq_data.png)
+	![1-1](./easyMF_images/02_01_Obtain_RNA-Seq_data.png)
 	
-	![1-1](/easyMF_images/02_02_Obtain_RNA-Seq_data.png)
+	![1-1](./easyMF_images/02_02_Obtain_RNA-Seq_data.png)
 	
 	**Step 3**: input the corresponding file and run the function.
 	
-	![1-1](/easyMF_images/02_03_Obtain_RNA-Seq_data.png)
+	![1-1](./easyMF_images/02_03_Obtain_RNA-Seq_data.png)
 
 #### Running time
 
@@ -180,11 +180,11 @@ For "Read-genome alignment"
 
 	**Step 1**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
 	
-	![1-1](/easyMF_images/03_01_Generate_gene_expression_matrix.png)
+	![1-1](./easyMF_images/03_01_Generate_gene_expression_matrix.png)
 	
 	**Step 2** input the corresponding files and appropriate parameters, then run the function.
 	
-	![1-1](/easyMF_images/03_02_Generate_gene_expression_matrix.png)
+	![1-1](./easyMF_images/03_02_Generate_gene_expression_matrix.png)
 
 #### Running time
 
@@ -235,11 +235,11 @@ For **Removing batch effects**
 
 	**Step 1**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
 	
-	![1-1](/easyMF_images/04_01_Expression_quality_control.png)
+	![1-1](./easyMF_images/04_01_Expression_quality_control.png)
 	
 	**Step 2** input the corresponding files and appropriate parameters, then run the function.
 	
-	![1-1](/easyMF_images/04_02_Expression_quality_control.png)
+	![1-1](./easyMF_images/04_02_Expression_quality_control.png)
 
 #### Running time
 
