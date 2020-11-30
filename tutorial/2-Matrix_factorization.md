@@ -91,11 +91,11 @@ Matrix Factorization can be used to decompose a gene expression matrix into an a
 
 	**Step 1**: upload test data in directory `Test_data/02_Matrix_Factorization` to history panel;
 	
-	![05_01](/easyMF_images/05_01_Matrix_factorization.png)
+	![05_01](./easyMF_images/05_01_Matrix_factorization.png)
 	
 	**Step 2** input the corresponding files and appropriate parameters, then run the function.
 	
-	![05_02](/easyMF_images/05_02_Matrix_factorization.png)
+	![05_02](./easyMF_images/05_02_Matrix_factorization.png)
 
 #### Running time
 
