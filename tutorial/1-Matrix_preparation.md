@@ -17,7 +17,7 @@ Matrix factorization is typically started with an input of a gene expression mat
 
 The gene expression matrix can be automatically generated from raw reads using a bioinformatics pipeline (see following figure).
 
-![Figure S1](./easyMF_images/The_bioinformatics_pipeline_for_the_generation_of_a gene_expression_matrix_from_RNA-Seq data.png)
+![Figure S1](easyMF_images/The_bioinformatics_pipeline_for_the_generation_of_a gene_expression_matrix_from_RNA-Seq data.png)
 
 This module consists of three functions: **Data Retrieval**, **Expression Matrix Generation** and **Expression Quality Control**.
 
@@ -50,15 +50,15 @@ This module consists of three functions: **Data Retrieval**, **Expression Matrix
           <td rowspan="4">Gene expression matrix</td>
           <td rowspan="4">~ 2 mins</td>
           <td>fastp (Raw RNA-Seq quality control)</td>
-          <td>Chen <I>et al</I>., 2018</td>
+          <td><a href="https://academic.oup.com/bioinformatics/article/34/17/i884/5093234">Chen <I>et al</I>., 2018</td>
       </tr>
       <tr>
           <td>HISAT2 (Read-genome alignment)</td>
-          <td>Kim <I>et al</I>., 2015</td>
+          <td><a href="https://www.nature.com/articles/nmeth.3317">Kim <I>et al</I>., 2015</td>
       </tr>
       <tr>
           <td>StringTie (Gene expression abundance calculation)</td>
-          <td>Pertea <I>et al</I>., 2015</td>
+          <td><a href="https://www.nature.com/articles/nbt.3122">Pertea <I>et al</I>., 2015</td>
       </tr>
       <tr>
           <td>In-house scripts</td>
@@ -75,8 +75,9 @@ This module consists of three functions: **Data Retrieval**, **Expression Matrix
       </tr>
       <tr>
           <td>sva (Removing batch effects)</td>
-          <td>Leek <I>et al</I>., 2012</td>
+          <td><a href="https://academic.oup.com/bioinformatics/article/28/6/882/311263">Leek <I>et al</I>., 2012</td>
       </tr>
+
 
 
 ## 1. Data Retrieval
@@ -85,7 +86,7 @@ Data Retrieval can be used to retrieve **Genome sequences** and **Genome annotat
 
 #### Inputs
 
-For retrieving **genome sequences and annotation**, users need to select the option **Obtain Genome Sequences and Annotation**.
+For retrieving **genome sequences and annotation**, users need to select option **Obtain Genome Sequences and Annotation**.
 
 - **Select a species**: This option provides the Latin name of 61 species.
 
@@ -93,13 +94,13 @@ For retrieving **genome sequences and annotation**, users need to select the opt
 
 - **Data type**: Genome sequences (.fasta) or annotation (.gtf).
 
-For retrieving **RNA-Seq** data, users need to select the option **Obtain RNA-Seq data**.
+For retrieving **RNA-Seq** data, users need to select option **Obtain RNA-Seq data**.
 
 - **Fecth data through data ID or ftp address**: easyMF provides two ways to download RNA-Seq data. 
 
-  If users select **Fetch data through data ID**, easyMF download RNA-Seq data by NCBI's tool *sratoolkit* (version 2.3.5) through RNA-Seq IDs (such as SRR1765337). 
+  If users select **Fetch data through data ID**, easyMF downloads RNA-Seq data by NCBI's tool *sratoolkit* (version 2.3.5) through RNA-Seq IDs (such as SRR1765337). 
 
-  If users select **Fetch data through data address**, easyMF download RNA-Seq data by wget using HTTP/FTP addresses.
+  If users select **Fetch data through data address**, easyMF downloads RNA-Seq data by wget using HTTP/FTP addresses.
 
 
 #### Outputs
@@ -118,21 +119,21 @@ For **Obtain RNA-Seq data**
 
 - The following screenshot shows us how to download genome sequences and annoatation using easyMF.
 
-	![1-1](./easyMF_images/01_Obtain_genome_sequences_and_annotation.png)
+	![1-1](easyMF_images/01_Obtain_genome_sequences_and_annotation.png)
 	
-- The following screenshot shows us how to download RNA-Seq data using easyMF.
+- The following screenshots show us how to download RNA-Seq data using easyMF.
 
 	**Step 1**: download test data provided by easyMF;
 	
-	**Step 2**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
+	**Step 2**: upload test datum`01_data_ID` in directory `Test_data/01_Matrix_Preparation` to history panel;
 	
-	![1-1](./easyMF_images/02_01_Obtain_RNA-Seq_data.png)
+	![1-1](easyMF_images/02_01_Obtain_RNA-Seq_data.png)
 	
-	![1-1](./easyMF_images/02_02_Obtain_RNA-Seq_data.png)
+	![1-1](easyMF_images/02_02_Obtain_RNA-Seq_data.png)
 	
-	**Step 3**: input the corresponding file and run the function.
+	**Step 3**: input the corresponding file, and run the function.
 	
-	![1-1](./easyMF_images/02_03_Obtain_RNA-Seq_data.png)
+	![1-1](easyMF_images/02_03_Obtain_RNA-Seq_data.png)
 
 #### Running time
 
@@ -154,7 +155,7 @@ In **Data** section
 
 - **Raw RNA-Seq data**: A compressed file containing RNA-Seq data in tar.gz format.
 
-In **Parameters** section, easyMF need users set parameters used for "RNA-Seq quality control" and "Read-genome alignment".
+In **Parameters** section, easyMF needs users set parameters used for "RNA-Seq quality control" and "Read-genome alignment".
 
 For "RNA-Seq quality control"
 
@@ -176,15 +177,15 @@ For "Read-genome alignment"
 
 * Test data for this function are in directory `Test_data/01_Matrix_Preparation` including `02_maize_reference_genome_chr10.fa`, `02_maize_reference_genome_chr10.gtf`, and `02_RNA-Seq_data.tar.gz`.
 
-- The following screenshot shows us how to generate a gene expression matrix using easyMF.
+- The following screenshots show us how to generate a gene expression matrix using easyMF.
 
 	**Step 1**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
 	
-	![1-1](./easyMF_images/03_01_Generate_gene_expression_matrix.png)
+	![1-1](easyMF_images/03_01_Generate_gene_expression_matrix.png)
 	
-	**Step 2** input the corresponding files and appropriate parameters, then run the function.
+	**Step 2**: input the corresponding files and appropriate parameters, then run the function.
 	
-	![1-1](./easyMF_images/03_02_Generate_gene_expression_matrix.png)
+	![1-1](easyMF_images/03_02_Generate_gene_expression_matrix.png)
 
 #### Running time
 
@@ -210,7 +211,7 @@ For **Removing outlier samples**
 
 - **Threshold of potential repeat samples**: Expression values between two samples are almost identical.
 
-- **Threshold of low-quality samples**: The structure of the specific sample is away from the others.
+- **Threshold of low-quality samples**: Sample distance between two RNA-Seq data.
 
 For **Removing batch effects**
 
@@ -231,16 +232,18 @@ For **Removing batch effects**
 
 * Test data for this function are ```03_sample_information``` in ```01_Matrix_Preparation```  for **Sample information**, and **Raw gene expression matrix** generated by the function **Expression Matrix Generation**. 
 
-- The following screenshot shows us how to generate a high-quality gene expression matrix using easyMF.
+- The following screenshota show us how to generate a high-quality gene expression matrix using easyMF.
 
-	**Step 1**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
+	**Step 1**: upload test datum in directory `Test_data/01_Matrix_Preparation` to history panel;
 	
-	![1-1](./easyMF_images/04_01_Expression_quality_control.png)
+	![1-1](easyMF_images/04_01_Expression_quality_control.png)
 	
-	**Step 2** input the corresponding files and appropriate parameters, then run the function.
+	**Step 2**: input the corresponding files and appropriate parameters, then run the function.
 	
-	![1-1](./easyMF_images/04_02_Expression_quality_control.png)
+	![1-1](easyMF_images/04_02_Expression_quality_control.png)
 
 #### Running time
 
 This step will cost ~ 10s for the test data. 
+
+

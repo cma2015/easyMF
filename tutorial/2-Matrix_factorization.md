@@ -39,11 +39,11 @@ Matrix Factorization can be used to decompose a gene expression matrix into an a
       </tr>
       <tr>
           <td>ica (ICA)</td>
-          <td>Helwig, 2015</td>
+          <td><a href="https://cran.r-project.org/web/packages/ica/index.html">Helwig, 2015</td>
       </tr>
       <tr>
           <td>bignmf (NMF)</td>
-          <td>Pan <I>et al</I>., 2012</td>
+          <td><a href="https://rdrr.io/github/panlanfeng/bignmf/man/bignmf.html">Pan <I>et al</I>., 2012</td>
       </tr>
 
 
@@ -87,15 +87,15 @@ Matrix Factorization can be used to decompose a gene expression matrix into an a
 
 * Test datum for this function is `01_Gene_expression_matrix` in directory `Test_data/02_Matrix_Factorization`.
 
-- The following screenshot shows us how to decompose the gene expression matrix using easyMF.
+- The following screenshots show us how to decompose the gene expression matrix using easyMF.
 
 	**Step 1**: upload test data in directory `Test_data/02_Matrix_Factorization` to history panel;
 	
-	![05_01](./easyMF_images/05_01_Matrix_factorization.png)
+	![05_01](easyMF_images/05_01_Matrix_factorization.png)
 	
-	**Step 2** input the corresponding files and appropriate parameters, then run the function.
+	**Step 2**: input the corresponding files and appropriate parameters, then run the function.
 	
-	![05_02](./easyMF_images/05_02_Matrix_factorization.png)
+	![05_02](easyMF_images/05_02_Matrix_factorization.png)
 
 #### Running time
 

@@ -37,7 +37,7 @@ This module consists of two functions: **Functional Gene Discovery**, and **Path
           <td>Gene score and rank; Area under the self-ranked curve (AUSR) plot</td>
           <td>~ 10s</td>
           <td>In-house scripts</td>
-          <td>Fehrmann <I>et al</I>., 2015</td>
+          <td><a href="https://www.nature.com/articles/ng.3173">Fehrmann <I>et al</I>., 2015</td>
       </tr>
       <tr>
           <td>Pathway Activity Inference</td>
@@ -48,6 +48,7 @@ This module consists of two functions: **Functional Gene Discovery**, and **Path
           <td>In-house scripts</td>
           <td>This study</td>
       </tr>
+
 
 
 ##  1. Functional Gene Discovery 
@@ -61,11 +62,11 @@ Functional gene discovery can be used to calculate gene score and rank genes bas
 <table class="fl-table">
     <tr>
         <td></td>
-        <td width="20%">Metagene 1</td>
-        <td width="20%">Metagene 2</td>
-        <td width="20%">Metagene 3</td>
-        <td width="20%">...</td>
-        <td width="20%">Metagene n</td>
+        <td width="20%"><b>Metagene 1</b></td>
+        <td width="20%"><b>Metagene 2</b></td>
+        <td width="20%"><b>Metagene 3</b></td>
+        <td width="20%"><b>...</b></td>
+        <td width="20%"><b>Metagene n</b></td>
     </tr>
     <tr>
         <td>Zm00001d053636</td>
@@ -99,7 +100,9 @@ Functional gene discovery can be used to calculate gene score and rank genes bas
         <td>...</td>
         <td>-0.494</td>
     </tr>
-*  **Functional genes**: A set of genes associated with a specific biology function, such as enriched in a phenotype of interest. If users select **Upload a file with functional gene IDs from local disk**, a newline-delimited file containing gene IDs needs to be provided; if users select **Enter functional gene IDs**, gene IDs need to be separated by comma. Here are two examples:
+
+* **Functional genes**: A set of genes associated with a specific biology function, such as enriched in a phenotype of interest. If users select **Upload a file with functional gene IDs from local disk**, a newline-delimited file containing gene IDs needs to be provided; if users select **Enter functional gene IDs**, gene IDs need to be separated by comma. Here are two examples:
+
 
 ​       A newline-delimited file containing gene IDs for **Upload a file with functional gene IDs from local disk**:
 
@@ -120,14 +123,14 @@ Zm00001d053636,Zm00001d053632,Zm00001d053630,...,Zm00001d053635
 
 #### Outputs
 
-- **Gene score and rank**: Summary of gene prioritization results. Each column shows **Gene ID**, **Score**, **Rank**, and **Annotation**. The higher ranking of a gene, the more related to the biological function.  Here is an example:
+- **Gene score and rank**: Summary of gene prioritization results containing **Gene ID**, **Score**, **Rank**, and **Annotation**. The higher ranking of a gene, the more related to the biological function.  Here is an example:
 
 <table class="fl-table">
     <tr>
-        <td width="25%">Gene ID</td>
-        <td width="25%">Score</td>
-        <td width="25%">Rank</td>
-        <td width="25%">Annotation</td>
+        <td width="25%"><b>Gene ID</b></td>
+        <td width="25%"><b>Score</b></td>
+        <td width="25%"><b>Rank</b></td>
+        <td width="25%"><b>Annotation</b></td>
     </tr>
     <tr>
         <td>Zm00001d053636</td>
@@ -160,25 +163,24 @@ Zm00001d053636,Zm00001d053632,Zm00001d053630,...,Zm00001d053635
         <td>Unlabel</td>
     </tr>
 
-
 - **Area under the self-ranked curve (AUSR) plot**: A plot of ratio (*Ra*) along the *y* axis versus self-rank along the *x* axis, where rank represents the ranks of all positive genes, *Ra*(*l*) represents the ratio of ranks lower than a pre-defined level of *l*.
 
-  ![06_00](./easyMF_images/06_00_Functional_gene_discovery.png)
+  ![06_00](/easyMF_images/06_00_Functional_gene_discovery.png)
 
 
 #### How to use this function
 
 - Test data for this function are in directory `Test_data/03_Metagene-based_Deep_Mining_Using_AM` including.
 
-- The following screenshot shows us how to implement functional gene discovery using easyMF.
+- The following screenshots show us how to implement functional gene discovery using easyMF.
 
   **Step 1**: upload test data in directory `Test_data/03_Metagene-based_Deep_Mining_Using_AM` to history panel;
 
-  ![06-01](./easyMF_images/06_01_Functional_gene_discovery.png)
+  ![06-01](/easyMF_images/06_01_Functional_gene_discovery.png)
 
-  **Step 2** input the corresponding files and appropriate parameters, then run the function.
+  **Step 2**: input the corresponding files and appropriate parameters, then run the function.
 
-  ![06_02](./easyMF_images/06_02_Functional_gene_discovery.png)
+  ![06_02](/easyMF_images/06_02_Functional_gene_discovery.png)
 
 #### Running time
 
@@ -197,11 +199,11 @@ Pathway activity inference can be used to examine the pathway activity for any g
   <table class="fl-table">
       <tr>
           <td></td>
-          <td width="20%">Metagene 1</td>
-          <td width="20%">Metagene 2</td>
-          <td width="20%">Metagene 3</td>
-          <td width="20%">...</td>
-          <td width="20%">Metagene n</td>
+          <td width="20%"><b>Metagene 1</b></td>
+          <td width="20%"><b>Metagene 2</b></td>
+          <td width="20%"><b>Metagene 3</b></td>
+          <td width="20%"><b>...</b></td>
+          <td width="20%"><b>Metagene n</b></td>
       </tr>
       <tr>
           <td>Zm00001d053636</td>
@@ -263,15 +265,15 @@ Pathway activity inference can be used to examine the pathway activity for any g
 
 - Test data for this function are in directory `Test_data/03_Metagene-based_Deep_Mining_Using_AM` including `01_Amplitude_matrix` and `01_Functional_gene_list`.
 
-- The following screenshot shows us how to examine the pathway activity using easyMF.
+- The following screenshots show us how to examine the pathway activity using easyMF.
 
   **Step 1**: upload test data in directory `Test_data/03_Metagene-based_Deep_Mining_Using_AM` to history panel;
 
-  ![07_01](./easyMF_images/07_01_Pathway_activity_inference.png)
+  ![07_01](/easyMF_images/07_01_Pathway_activity_inference.png)
 
-  **Step 2** input the corresponding files and appropriate parameters, then run the function.
+  **Step 2**: input the corresponding files and appropriate parameters, then run the function.
 
-  ![07_02](./easyMF_images/07_02_Pathway_activity_inference.png)
+  ![07_02](/easyMF_images/07_02_Pathway_activity_inference.png)
 
 #### Running time
 

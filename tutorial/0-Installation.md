@@ -2,7 +2,7 @@
 
 <div align="center">(version 1.0)</div>
 
-easyMF is a user-friendly web platform that aims to facilitate biological discovery from large-scale transcriptome data through matrix factorization (MF). It offers several functional tools for gene expression matrix generation, and metagene-based exploratory analysis including sample clustering, signature gene identification, functional gene discovery, subtype cell detection, and pathway activity inference.
+easyMF is a user-friendly web platform that aims to facilitate biological discovery from large-scale transcriptome data through matrix factorization (MF). It offers several functional tools for gene expression matrix generation, expression matrix factorization, and metagene-based exploratory analysis including sample clustering, signature gene identification, functional gene discovery, subtype cell detection, and pathway activity inference.
 
 - easyMF project is hosted on https://github.com/cma2015/easyMF.
 - easyMF docker image is available in https://hub.docker.com/r/malab/easymf.
@@ -55,19 +55,19 @@ easyMF is a user-friendly web platform that aims to facilitate biological discov
 - Once Docker is installed successfully, you will see the following message:
   
 
+![00](easyMF_images/00_docker.png)
+
 - **Step 2**: easyMF installation from Docker Hub
 ```bash
-
-
 # pull latest easyMF Docker image from docker hub
-$ docker pull malab/easyMF
+$ docker pull malab/easymf
 ```
 - **Step 3**: Launch easyMF local server
 ```bash
-$ docker run -it -p 8080:8080 malab/easyMF bash
+$ docker run -it -p 8080:8080 malab/easymf bash
 $ bash /home/galaxy/run.sh
 ```
 
 Then, easyMF local server can be accessed via http://localhost:8080
 
-![00](./easyMF_images/00_welcome_to_easyMF.png)
+![00](easyMF_images/00_welcome_to_easyMF.png)

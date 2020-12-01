@@ -37,11 +37,11 @@ This module consists of three functions: **Sample Clustering Analysis**, **Tempo
           <td rowspan="6">Cluster information; Cluster visualization; </td>
           <td rowspan="6">~ 15s</td>
           <td>mclust</td>
-          <td>Scrucca <I>et al</I>., 2016</td>
+          <td><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/pmc5096736/">Scrucca <I>et al</I>., 2016</td>
       </tr>
       <tr>
           <td>apcluster</td>
-          <td>Bodenhofer <I>et al</I>., 2011</td>
+          <td><a href="https://academic.oup.com/bioinformatics/article-abstract/27/17/2463/224402">Bodenhofer <I>et al</I>., 2011</td>
       </tr>
       <tr>
           <td>SSE</td>
@@ -49,15 +49,15 @@ This module consists of three functions: **Sample Clustering Analysis**, **Tempo
       </tr>
       <tr>
           <td>fpc</td>
-          <td>Hennig, 2013</td>
+          <td><a href="https://cran.r-project.org/web/packages/fpc/index.html">Hennig, 2013</td>
       </tr>
       <tr>
           <td>vegan</td>
-          <td>Dixon, 2003</td>
+          <td><a href="https://cran.r-project.org/web/packages/vegan/index.html">Dixon, 2003</td>
       </tr>
       <tr>
           <td>gap</td>
-          <td>Maechler <I>et al</I>., 2012</td>
+          <td><a href="https://cran.r-project.org/web/packages/cluster/cluster.pdf">Maechler <I>et al</I>., 2012</td>
       </tr>
       <tr>
           <td rowspan="3">Temporal-spatial Analysis</td>
@@ -70,11 +70,11 @@ This module consists of three functions: **Sample Clustering Analysis**, **Tempo
       </tr>
       <tr>
           <td>cogaps</td>
-          <td>Stein-O'Brien <I>et al</I>., 2017</td>
+          <td><a href="https://academic.oup.com/bioinformatics/article/33/12/1892/2975325">Stein-O'Brien <I>et al</I>., 2017</td>
       </tr>
       <tr>
           <td>topGO</td>
-          <td>Alexa and Rahnenführer, 2009</td>
+          <td><a href="https://bioconductor.org/packages/release/bioc/vignettes/topGO/inst/doc/topGO.pdf">Alexa and Rahnenführer, 2009</td>
       </tr>
       <tr>
           <td rowspan="4">Subtype Cell Detection</td>
@@ -87,20 +87,21 @@ This module consists of three functions: **Sample Clustering Analysis**, **Tempo
       </tr>
       <tr>
           <td>ica</td>
-          <td>Helwig, 2015</td>
+          <td><a href="https://cran.r-project.org/web/packages/ica/index.html">Helwig, 2015</td>
       </tr>
       <tr>
           <td>bignmf</td>
-          <td>Helwig, 2015</td>
+          <td><a href="https://rdrr.io/github/panlanfeng/bignmf/man/bignmf.html">Pan <I>et al</I>., 2012</td>
       </tr>
       <tr>
           <td>In-house scripts</td>
           <td>This study</td>
       </tr>   
 
+
 ## 1. Sample Clustering Analysis
 
-In the current version, easyMF provides six optional algorithms (mclust, apcluster, SSE, fpc, vegan , and gap) to cluster samples using PM coefficients. The cluster result is visualized in plots and tables, providing a quick overview of the relationships among samples.
+In the current version, easyMF provides six optional algorithms ([mclust](https://journal.r-project.org/archive/2016/RJ-2016-021/index.html), [apcluster](https://cran.r-project.org/web/packages/apcluster/index.html), SSE, [fpc](https://cran.r-project.org/web/packages/fpc/index.html), [vegan](https://cran.r-project.org/web/packages/vegan/index.html), and [gap](https://www.rdocumentation.org/packages/cluster/versions/2.1.0/topics/clusGap)) to cluster samples using PM coefficients. The cluster result is visualized in dot plots and tables, providing a quick overview of the relationships among samples.
 
 #### Inputs
 
@@ -133,7 +134,9 @@ In the current version, easyMF provides six optional algorithms (mclust, apclust
 
 #### Outputs
 
-- **cluster visulization**:  A dot plot of the clustering result.
+- **cluster visulization**:  A dot plot of the clustering results.
+
+​     ![08-01](easyMF_images/08_00_Sample_clustering.png)
 
 - **cluster information**: Sample cluster results for specific algorithms.
 
@@ -148,13 +151,15 @@ In the current version, easyMF provides six optional algorithms (mclust, apclust
 
 - Test datum for this function is `01_Pattern_matrix` in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM`.
 
-- The following screenshot shows us how to cluster samples using easyMF.
+- The following screenshots show us how to cluster samples using easyMF.
 
-  **Step 1**: upload test data in directory `Test_data/01_Matrix_Preparation` to history panel;
+  **Step 1**: upload test datum in directory `Test_data/01_Matrix_Preparation` to history panel;
 
-  ![08-01](./easyMF_images/08_01_Sample_clustering.png)
-
-​       **Step 2** input the corresponding files and appropriate parameters, then run the function.       ![08-02](/easyMF_images/08_02_Sample_clustering.png)
+  ![08-01](easyMF_images/08_01_Sample_clustering.png)
+  
+  **Step 2**: input the corresponding files and appropriate parameters, then run the function.
+  
+  ![08-02](easyMF_images/08_02_Sample_clustering.png)
 
 #### Running time
 
@@ -183,7 +188,7 @@ In **Parameters** section
 
 #### Outputs
 
-- **Signature genes of each metagene**: Summary of signature genes in each metagene. Each column shows **Metagene ID**, **Gene ID**, and **Gene description**.
+- **Signature genes of each metagene**: Summary of signature genes in each metagene. Columns represent **Metagene ID**, **Gene ID**, and **Gene description**, respectively.
 
 | Metagene ID | Gene ID        | Gene description                    |
 | :---------- | :------------- | :---------------------------------- |
@@ -199,21 +204,21 @@ In **Parameters** section
 
 - **Visualization of metagenes**: Hierarchical clustering analysis of pattern matrix.
 
-​      ![1-1](../assets/img/1-1.png)
+​      ![09_03](easyMF_images/09_03_Temporal-spatial_transcriptome_analysis.png)
 
 #### How to use this function
 
 - Test data for this function are in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` including `02_Gene_expression_matrix`, `02_Amplitude_matrix`, `01_Pattern_matrix`, and `02_Sample_information`.
 
-- The following screenshot shows us how to implement temporal-spatial transcriptome analysis using easMF.
+- The following screenshots show us how to implement temporal-spatial transcriptome analysis using easMF.
 
   **Step 1**: upload test data in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` to history panel;
 
-  ![09_01](./easyMF_images/09_01_Temporal-spatial_transcriptome_analysis.png)
+  ![09_01](easyMF_images/09_01_Temporal-spatial_transcriptome_analysis.png)
 
-   **Step 2** input the corresponding files and appropriate parameters, then run the function.       
+   **Step 2**: input the corresponding files and appropriate parameters, then run the function.       
 
-  ![09-02](./easyMF_images/09_02_Temporal-spatial_transcriptome_analysis.png)
+  ![09-02](easyMF_images/09_02_Temporal-spatial_transcriptome_analysis.png)
 
 #### Running time
 
@@ -328,15 +333,15 @@ Single-cell RNA-Seq, which measures gene expressions at the level of a single ce
 
 - Test data for this function are in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` including `03_Single-cell_gene_expression_matrix`, and `03_Spec_score`.
 
-- The following screenshot shows us how to detect cell type for single-cell RNA-Seq data using easMF.
+- The following screenshots show us how to detect cell type for single-cell RNA-Seq data using easMF.
 
   **Step 1**: upload test data in directory `Test_data/04_Metagene-based_Deep_Mining_Using_PM` to history panel;
 
-  ![10_01](./easyMF_images/10_01_subtype_cell_detection.png)
+  ![10_01](easyMF_images/10_01_subtype_cell_detection.png)
 
-   **Step 2** input the corresponding files and appropriate parameters, then run the function.      
+   **Step 2**: input the corresponding files and appropriate parameters, then run the function.      
 
-  ![10_02](./easyMF_images/10_02_subtype_cell_detection.png)
+  ![10_02](easyMF_images/10_02_subtype_cell_detection.png)
 
 #### Running time
 
