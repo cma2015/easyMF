@@ -1,11 +1,11 @@
 
-## [easyMF: A Visual Analytics Platform for Matrix Factorization-based Biological Discovery from Large-scale Transcriptome Data](http://omicstudio.cloud:4002/)
+## [easyMF: a visual analytics platform for matrix factorization-based biological discovery from large-scale transcriptome data](http://omicstudio.cloud:4002/)
 
 [![Docker Repository on Quay](https://quay.io/repository/bgruening/galaxy-rna-workbench/status "Docker Repository on Quay")](https://hub.docker.com/r/malab/easymf)
 
 ## Introduction
 - easyMF is a user-friendly web platform that aims to facilitate biological discovery from large-scale transcriptome data through matrix factorization.
-- easyMF comprises three functional modules, named Matrix Preparation, Matrix Factorization, and Deep Mining. Deep Mining includes Metagene-based Deep Mining Using AM and Metagene-based Deep Mining Using PM.
+- easyMF comprises three functional modules, named **Matrix Preparation**, **Matrix Factorization**, and **Deep Mining**. Deep Mining includes Metagene-based Deep Mining Using AM and Metagene-based Deep Mining Using PM.
 - easyMF is a flexible platform that can be used to perform accessible, reproducible, collaborative and transparent analyses of large-scale transcriptome data.
 - easyMF was powered with an advanced packaging technology, which enables compatibility and portability.
 - easyMF project is hosted on https://github.com/cma2015/easyMF, easyMF docker image is available at https://hub.docker.com/r/malab/easymf, easyMF server can be accessed via http://easymf.omicstudio.cloud.
