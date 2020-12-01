@@ -4,7 +4,11 @@
 [![Docker Repository on Quay](https://quay.io/repository/bgruening/galaxy-rna-workbench/status "Docker Repository on Quay")](https://hub.docker.com/r/malab/easymf)
 
 ## Introduction
-- easyMF is a user-friendly web platform that aims to facilitate biological discovery from large-scale transcriptome data through matrix factorization (MF). By integrating three major matrix factorization algorithms (PCA [principle component analysis]; ICA [independent component analysis]; NMF [non-negative matrix factorization]), easyMF enables users perform a series of analysis based on pattern matrix (PM) and amplitude matrix (AM). For metagene-based deep mining using PM, four sub-modules are implemented to perform **Clustering analysis**, **Temporal-spatial transcriptome analysis**, **Single-cell analysis**; For metagene-based deep mining using AM, **Functional gene discovery** and **Pathway activity analysis** are provided to perform gene function prediction, and active pathways, respectively. The easyMF project is hosted on GitHub (https://github.com/cma2015/easyMF) and can be accessed from (http://easymf.omicstudio.cloud/). 
+- easyMF is a user-friendly web platform that aims to facilitate biological discovery from large-scale transcriptome data through matrix factorization.
+- easyMF comprises three functional modules, named Matrix Preparation, Matrix Factorization, and Deep Mining. Deep Mining includes Metagene-based Deep Mining Using AM and Metagene-based Deep Mining Using PM.
+- easyMF is a flexible platform that can be used to perform accessible, reproducible, collaborative and transparent analyses of large-scale transcriptome data.
+- easyMF was powered with an advanced packaging technology, which enables compatibility and portability.
+- easyMF project is hosted on https://github.com/cma2015/easyMF, easyMF docker image is available at https://hub.docker.com/r/malab/easymf, easyMF server can be accessed via http://easymf.omicstudio.cloud.
 
 
 <div align="center"><img src="https://github.com/cma2015/easyMF/blob/master/tutorial/easyMF_images/Figure%201_Overview%20of%20easyMF_20201028.png" width = "80%" alt="TAMF" align=center/></div>
