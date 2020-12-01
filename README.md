@@ -15,8 +15,7 @@
 
 ## How to use easyMF
 
-- User tutorial: https://github.com/cma2015/easyMF/tree/master/tutorial
-- Test datasets: http://omicstudio.cloud:4002/static/test_data/Test_data.rar
+- Test data and tutorial of deepEA are presented at http://omicstudio.cloud:4002/
 
 ## News and updates
 
