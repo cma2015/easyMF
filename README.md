@@ -21,7 +21,7 @@
 - Web server and Docker image of easyMF were released for the first time.
 
 ## How to cite easyMF
-- Wenlong Ma, Siyuan Chen, Jingjing Zhai, Yuhong Qi, Shang Xie, Minggui Song, Menghan Li, Chuang Ma, easyMF: a visual analytics platform for matrix factorization-based biological discovery from large-scale transcriptome data (Submitted).
+- Wenlong Ma, Siyuan Chen, Jingjing Zhai, Yuhong Qi, Shang Xie, Minggui Song, Chuang Ma, easyMF: a visual analytics platform for matrix factorization-based biological discovery from large-scale transcriptome data (Submitted).
 
 ## How to access help
 * If users encounter any bugs or issues, feel free to leave a message at Github [issues](<https://github.com/cma2015/issues>). We will try our best to deal with all issues as soon as possible.
