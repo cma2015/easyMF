@@ -16,7 +16,7 @@
 ## How to use easyMF
 
 - User tutorial: https://github.com/cma2015/easyMF/tree/master/tutorial
-- Test datasets: https://github.com/cma2015/easyMF/tree/master/test_data
+- Test datasets: http://omicstudio.cloud:4002/static/test_data/Test_data.rar
 
 ## News and updates
 
