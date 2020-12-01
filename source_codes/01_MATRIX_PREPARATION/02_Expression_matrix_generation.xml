@@ -1,0 +1,80 @@
+<tool id="expression_matrix_generation" name="Expression Matrix Generation" version="17.09">
+<description></description>
+<command>	
+	  
+	bash ${__tool_directory__}/02_Expression_matrix_generation.sh ${expression_matrix}
+		
+		${data.genome_sequence} ${data.genome_annotation} ${data.raw_read}
+		
+		${parameters.thread}
+		
+		${parameters.rnaseq_QC.min_read_length} ${parameters.rnaseq_QC.min_read_quality}
+		
+		${parameters.rnaseq_mapping.min_intron} ${parameters.rnaseq_mapping.max_intron} ;  
+	  
+
+</command>
+
+<inputs>
+	<section name="data" title="Data" expanded="True">
+		<param name="genome_sequence" type="data" label="Reference genome sequence" />
+		<param name="genome_annotation" type="data" label="Reference genome annotation" />
+		<param name="raw_read" type="data" label="Raw RNA-Seq data" />
+	</section>
+	
+	<section name="parameters" title="Parameters" expanded="True">
+		<section name="rnaseq_QC" title="RNA-Seq quality control" expanded="True">
+			<param name="min_read_length" type="integer" value="15" label="Minimum read length"/>
+			<param name="min_read_quality" type="integer" value="20" label="The quality value that a base is qualified"/>		
+		</section>
+		
+		<section name="rnaseq_mapping" title="Read-genome alignment" expanded="True">
+			<param name="min_intron" type="integer" value="20" label="Minimum intron length for RNA-Seq alignment"/>
+			<param name="max_intron" type="integer" value="10000" label="Maximum intron length for RNA-Seq alignment"/>
+		</section>
+				
+		<param name="thread" type="integer" label="Threads" max="4" min="1" value="3" />
+	</section>
+	
+	
+</inputs>
+<stdio>
+	<exit_code range="1:"  level="fatal" description="Error Running Matrix Preparation" />
+</stdio>
+<outputs>
+    <data name="expression_matrix" format="txt" label="Raw Gene Expression Matrix"/>
+</outputs>
+<help>
+.. class:: infomark
+
+**What it does**
+
+This function can be used to generate a gene expression matrix (genes in rows and individual samples in columns) through raw RNA-Seq quality control, read-genome alignment, and gene expression abundance calculation.
+
+--------------
+
+.. class:: infomark
+
+**Inputs**
+
+* **Reference genome sequences**: Reference genome sequence as *fasta* format.
+
+* **Reference genome annotation**: Reference genome annotation as *GTF* format.
+
+* **Raw RNA-Seq data**: RNA-Seq data retrieved by the function **Data Retrieval** or uploaded by users with a compressed file as the format *tar.gz* containing RNA-Seq data with *fasta* format.
+
+--------------
+
+.. class:: infomark
+
+**Output**
+
+* **Raw Gene Expression Matrix**: A gene expression matrix (genes in rows and individual samples in columns)
+
+</help>
+<citations>
+	<citation type="doi">10.1093/bioinformatics/bty560</citation><!--fastp-->
+	<citation type="doi">10.1038/nmeth.3317</citation><!--HISAT2-->
+	<citation type="doi">10.1038/nbt.3122</citation><!--StringTie-->
+</citations>
+</tool>

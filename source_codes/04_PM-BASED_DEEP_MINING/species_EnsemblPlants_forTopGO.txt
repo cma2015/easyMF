@@ -1,0 +1,96 @@
+# Table used for listing simple BIOM display servers
+#<name>	<id>	<version>
+Aegilops tauschii genes (Aet v4.0)	atauschii_eg_gene	Aet v4.0
+Triticum aestivum genes (IWGSC)	taestivum_eg_gene	IWGSC
+Medicago truncatula genes (MedtrA17_4.0)	mtruncatula_eg_gene	MedtrA17_4.0
+Actinidia chinensis genes (Red5_PS1_1.69.0)	achinensis_eg_gene	Red5_PS1_1.69.0
+Panicum hallii HAL2 genes (PhalliiHAL_v2.1)	phhal2_eg_gene	PhalliiHAL_v2.1
+Phaseolus vulgaris genes (PhaVulg1_0)	pvulgaris_eg_gene	PhaVulg1_0
+Oryza sativa Indica Group genes (ASM465v1)	oindica_eg_gene	ASM465v1
+Leersia perrieri genes (Lperr_V1.4)	lperrieri_eg_gene	Lperr_V1.4
+Brassica rapa genes (Brapa_1.0)	brapa_eg_gene	Brapa_1.0
+Cucumis melo genes (Melonv4)	cmelo_eg_gene	Melonv4
+Prunus persica genes (Prunus_persica_NCBIv2)	ppersica_eg_gene	Prunus_persica_NCBIv2
+Oryza glumipatula genes (Oryza_glumaepatula_v1.5)	oglumipatula_eg_gene	Oryza_glumaepatula_v1.5
+Prunus dulcis genes (ALMONDv2)	pdulcis_eg_gene	ALMONDv2
+Trifolium pratense genes (Trpr)	tpratense_eg_gene	Trpr
+Triticum turgidum genes (svevo)	tturgidum_eg_gene	svevo
+Solanum tuberosum genes (SolTub_3.0)	stuberosum_eg_gene	SolTub_3.0
+Amborella trichopoda genes (AMTR1.0)	atrichopoda_eg_gene	AMTR1.0
+Hordeum vulgare genes (IBSC v2)	hvulgare_eg_gene	IBSC v2
+Eragrostis curvula genes (CERZOS_E.curvula1.0)	ecurvula_eg_gene	CERZOS_E.curvula1.0
+Oryza glaberrima genes (Oryza_glaberrima_V1)	oglaberrima_eg_gene	Oryza_glaberrima_V1
+Oryza brachyantha genes (Oryza_brachyantha.v1.4b)	obrachyantha_eg_gene	Oryza_brachyantha.v1.4b
+Cyanidioschyzon merolae genes (ASM9120v1)	cmerolae_eg_gene	ASM9120v1
+Brassica oleracea genes (BOL)	boleracea_eg_gene	BOL
+Solanum lycopersicum genes (SL3.0)	slycopersicum_eg_gene	SL3.0
+Zea mays genes (B73 RefGen_v4)	zmays_eg_gene	B73 RefGen_v4
+Vigna radiata genes (Vradiata_ver6)	vradiata_eg_gene	Vradiata_ver6
+Theobroma cacao Matina 1-6 genes (Theobroma_cacao_20110822)	tcmatina_eg_gene	Theobroma_cacao_20110822
+Oryza meridionalis genes (Oryza_meridionalis_v1.3)	omeridionalis_eg_gene	Oryza_meridionalis_v1.3
+Vigna angularis genes (Vigan1.1)	vangularis_eg_gene	Vigan1.1
+Camelina sativa genes (Cs)	csativa_eg_gene	Cs
+Daucus carota genes (ASM162521v1)	dcarota_eg_gene	ASM162521v1
+Manihot esculenta genes (Manihot esculenta v6)	mesculenta_eg_gene	Manihot esculenta v6
+Capsicum annuum genes (ASM51225v2)	cannuum_eg_gene	ASM51225v2
+Triticum aestivum Robigus genes (TGAC_robigus)	tarobigus_eg_gene	TGAC_robigus
+Marchantia polymorpha genes (Marchanta_polymorpha_v1)	mpolymorpha_eg_gene	Marchanta_polymorpha_v1
+Gossypium raimondii genes (Graimondii2_0)	graimondii_eg_gene	Graimondii2_0
+Arabis alpina genes (A_alpina_V4)	aalpina_eg_gene	A_alpina_V4
+Vitis vinifera genes (12X)	vvinifera_eg_gene	12X
+Dioscorea rotundata genes (TDr96_F1_Pseudo_Chromosome_v1.0)	drotundata_eg_gene	TDr96_F1_Pseudo_Chromosome_v1.0
+Physcomitrella patens genes (Phypa V3)	ppatens_eg_gene	Phypa V3
+Glycine max genes (Glycine_max_v2.1)	gmax_eg_gene	Glycine_max_v2.1
+Corchorus capsularis genes (CCACVL1_1.0)	ccapsularis_eg_gene	CCACVL1_1.0
+Helianthus annuus genes (HanXRQr1.0)	hannuus_eg_gene	HanXRQr1.0
+Ananas comosus genes (F153)	acomosus_eg_gene	F153
+Arabidopsis lyrata genes (v.1.0)	alyrata_eg_gene	v.1.0
+Oryza nivara genes (Oryza_nivara_v1.0)	onivara_eg_gene	Oryza_nivara_v1.0
+Triticum aestivum Weebill genes (EI_WeebilV1)	taweebil_eg_gene	EI_WeebilV1
+Eragrostis tef genes (ASM97063v1)	etef_eg_gene	ASM97063v1
+Lupinus angustifolius genes (LupAngTanjil_v1.0)	langustifolius_eg_gene	LupAngTanjil_v1.0
+Nicotiana attenuata genes (NIATTr2)	nattenuata_eg_gene	NIATTr2
+Oryza punctata genes (Oryza_punctata_v1.2)	opunctata_eg_gene	Oryza_punctata_v1.2
+Chara braunii genes (Cbr_1.0)	cbraunii_eg_gene	Cbr_1.0
+Cynara cardunculus genes (CcrdV1)	ccardunculus_eg_gene	CcrdV1
+Selaginella moellendorffii genes (v1.0)	smoellendorffii_eg_gene	v1.0
+Panicum hallii FIL2 genes (PHallii_v3.1)	phfil2_eg_gene	PHallii_v3.1
+Triticum aestivum Claire genes (TGAC_paragon)	taclaire_eg_gene	TGAC_paragon
+Brassica napus genes (AST_PRJEB5043_v1)	bnapus_eg_gene	AST_PRJEB5043_v1
+Cucumis sativus genes (ASM407v2)	csativus_eg_gene	ASM407v2
+Sorghum bicolor genes (Sorghum_bicolor_NCBIv3)	sbicolor_eg_gene	Sorghum_bicolor_NCBIv3
+Oryza rufipogon genes (OR_W1943)	orufipogon_eg_gene	OR_W1943
+Triticum aestivum Cadenza genes (TGAC_cadenza)	tacadenza_eg_gene	TGAC_cadenza
+Populus trichocarpa genes (Pop_tri_v3)	ptrichocarpa_eg_gene	Pop_tri_v3
+Chlamydomonas reinhardtii genes (Chlamydomonas_reinhardtii_v5.5)	creinhardtii_eg_gene	Chlamydomonas_reinhardtii_v5.5
+Oryza longistaminata genes (O_longistaminata_v1.0)	olongistaminata_eg_gene	O_longistaminata_v1.0
+Malus domestica Golden genes (ASM211411v1)	mdgolden_eg_gene	ASM211411v1
+Triticum aestivum Paragon genes (EI_paragon)	taparagon_eg_gene	EI_paragon
+Triticum dicoccoides genes (WEWSeq v.1.0)	tdicoccoides_eg_gene	WEWSeq v.1.0
+Arabidopsis thaliana genes (TAIR10)	athaliana_eg_gene	TAIR10
+Coffea canephora genes (AUK_PRJEB4211_v1)	ccanephora_eg_gene	AUK_PRJEB4211_v1
+Saccharum spontaneum genes (Sspon.HiC_chr_asm)	sspontaneum_eg_gene	Sspon.HiC_chr_asm
+Theobroma cacao Belizian Criollo B97-61/B2 genes (Criollo_cocoa_genome_V2)	tccriollo_eg_gene	Criollo_cocoa_genome_V2
+Ipomoea triloba genes (ASM357664v1)	itriloba_eg_gene	ASM357664v1
+Setaria viridis genes (Setaria_viridis_v2.0)	sviridis_eg_gene	Setaria_viridis_v2.0
+Rosa chinensis genes (RchiOBHm-V2)	rchinensis_eg_gene	RchiOBHm-V2
+Chondrus crispus genes (ASM35022v2)	ccrispus_eg_gene	ASM35022v2
+Prunus avium genes (PAV_r1.0)	pavium_eg_gene	PAV_r1.0
+Pistacia vera genes (PisVer_v2)	pvera_eg_gene	PisVer_v2
+Nymphaea colorata genes (ASM883128v1)	ncolorata_eg_gene	ASM883128v1
+Citrus clementina genes (Citrus_clementina_v1.0)	cclementina_eg_gene	Citrus_clementina_v1.0
+Citrullus lanatus genes (Cla97_v1)	clanatus_eg_gene	Cla97_v1
+Cannabis sativa female genes (cs10)	csfemale_eg_gene	cs10
+Oryza barthii genes (O.barthii_v1)	obarthii_eg_gene	O.barthii_v1
+Beta vulgaris genes (RefBeet-1.2.2)	bvulgaris_eg_gene	RefBeet-1.2.2
+Triticum urartu genes (ASM34745v1)	turartu_eg_gene	ASM34745v1
+Arabidopsis halleri genes (Ahal2.2)	ahalleri_eg_gene	Ahal2.2
+Oryza sativa Japonica Group genes (IRGSP-1.0)	osativa_eg_gene	IRGSP-1.0
+Galdieria sulphuraria genes (ASM34128v1)	gsulphuraria_eg_gene	ASM34128v1
+Setaria italica genes (Setaria_italica_v2.0)	sitalica_eg_gene	Setaria_italica_v2.0
+Hordeum vulgare GoldenPromise genes (GPv1)	hvgoldenpromise_eg_gene	GPv1
+Brachypodium distachyon genes (Brachypodium_distachyon_v3.0)	bdistachyon_eg_gene	Brachypodium_distachyon_v3.0
+Musa acuminata genes (ASM31385v1)	macuminata_eg_gene	ASM31385v1
+Ostreococcus lucimarinus genes (ASM9206v1)	olucimarinus_eg_gene	ASM9206v1
+Olea europaea var. sylvestris genes (O_europaea_v1)	oesylvestris_eg_gene	O_europaea_v1
+

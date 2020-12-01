@@ -1,0 +1,266 @@
+<tool id="matrix_factorization" name="Matrix Factorization">
+  <description>
+  </description>
+  <requirements>
+      <requirement type="package" version="3.4.2">R</requirement>
+      <requirement type="package" version="1.2.0">getopt</requirement>
+  </requirements>
+
+  <command>	
+	Rscript ${__tool_directory__}/matrix_factorization.R
+
+	
+	#if $Decomposition.decompose in ["1"]:
+		--input1
+			$Decomposition.geneExp
+		--input2
+		        5
+		--input3
+			#if $Decomposition.Metagene.metagene in ["1"]:
+				0
+			#elif 	$Decomposition.Metagene.metagene in ["2"]:
+				0
+			#else
+				$Decomposition.Metagene.number
+
+			#end if
+
+	#end if
+
+	#if $Decomposition.decompose in ["2"]:
+		--input1
+			$Decomposition.geneExp
+		--input2
+			-1
+		--input3
+			#if $Decomposition.Metagene.metagene in ["1"]:
+				0
+			#elif 	$Decomposition.Metagene.metagene in ["2"]:
+				0
+			#else
+				$Decomposition.Metagene.number
+
+			#end if
+
+	#end if
+
+	#if $Decomposition.decompose in ["3"]:
+		--input1
+			$Decomposition.geneExp
+		--input2
+			0
+		--input3
+			#if $Decomposition.Metagene.metagene in ["1"]:
+				0
+			#elif 	$Decomposition.Metagene.metagene in ["2"]:
+				0
+			#else
+				$Decomposition.Metagene.number
+
+			#end if
+
+	#end if
+
+	#if $Decomposition.decompose in ["4"]:
+		--input1
+			0
+		--input2
+			0
+		--input3
+			0
+
+	#end if
+
+	--input4
+		$Decomposition.decompose
+	--input5
+		$Decomposition.Metagene.metagene	
+	
+	--output1 $amplitude
+	--output2 $pattern 
+	--pdf1
+	     $statistics ;
+	
+
+</command>
+<inputs>
+	<conditional name="Decomposition">
+			<param name="decompose" type="select" label="Decomposition options" multiple="false" display="radio">
+				<option value="1">PCA</option>
+				<option value="2">ICA</option>
+				<option value="3">NMF</option>
+				<!--<option value="4">User-specific</option>-->
+			</param>
+			<when value="1">	
+				<param name="geneExp" type="data" label="Gene expression matrix" />	
+				<conditional name="Metagene">
+					<param name="metagene" type="select" label="Metagene number">
+						<option value="1">Scan an optimal metagene number automatically by easyMF</option>
+                                                <option value="2">Set each sample as a metagene</option>
+                                                <option value="3">Specify metagene number by users</option>
+						<!-- <option value="4">Scan an optimal metagene number from a number user specified</option>-->					
+					</param>
+					<when value="3">
+						<param name="number" type="text" label="The number of metagenes" />
+					</when>
+					<when value="4">
+						<param name="number" type="text" label="Specified the minimum number of optimal metagenes to search" />
+					</when>
+				</conditional>
+			</when>
+
+			<when value="2">	
+				<param name="geneExp" type="data" label="Gene expression matrix" />	
+				<conditional name="Metagene">
+					<param name="metagene" type="select" label="Metagene number">
+						<option value="1">Scan an optimal metagene number automatically by easyMF</option>
+                                                <option value="2">Set each sample as a metagene</option>
+                                                <option value="3">Specify metagene number by users</option>
+						<!--<option value="4">Scan an optimal metagene number from a number user specified</option>					-->
+					</param>
+					<when value="3">
+						<param name="number" type="text" label="The number of metagenes" />
+					</when>
+					<when value="4">
+						<param name="number" type="text" label="Specified the minimum number of optimal metagenes to search" />
+					</when>
+				</conditional>
+			</when>
+			<when value="3">	
+				<param name="geneExp" type="data" label="Gene expression matrix" />	
+				<conditional name="Metagene">
+					<param name="metagene" type="select" label="Metagene number">
+						<option value="1">Scan an optimal metagene number automatically by easyMF</option>
+						<option value="2">Set each sample as a metagene</option>
+						<option value="3">Specify metagene number by users</option>
+						<!--<option value="4">Scan an optimal metagene number from a number user specified</option>	-->
+					</param>
+					<when value="3">
+						<param name="number" type="text" label="The number of metagenes" />
+					</when>
+					<when value="4">
+						<param name="number" type="text" label="Specified the minimum number of optimal metagenes to search" />
+					</when>
+				</conditional>
+			</when>
+
+			<when value="4">	
+				<param name="geneset" type="text" value="Please upload the Amplitude and Pattern matrix of the prepared gene expression matrix through your specific MF algorithm" area="true" label="Upload AM and PM through the Get Data section of the Tools panel" />
+				<!--<param name="AM" type="data" label="amplitude matrix" />
+				<param name="PM" type="data" label="pattern matrix" />-->
+			</when>
+	</conditional>	
+	
+  </inputs>  
+	<stdio><exit_code range="1:" level="fatal" description="Error Running build RAP2 model"/></stdio>
+  <outputs>
+	<data name="amplitude" format="tabular" label="Amplitude matrix" help="molecular relationships" >
+		<filter>Decomposition['decompose'] != '4'</filter>
+	</data>
+	<data name="pattern" format="tabular" label="Pattern matrix" help="sample relationships" >
+		<filter>Decomposition['decompose'] != '4'</filter>
+	</data>
+
+	<data name="statistics" format="pdf" label="Statistics analysis of the decomposition" help="statistics analysis of the decomposition" >
+		<filter>(Decomposition['decompose'] !='4' and  Decomposition['Metagene']['metagene'] == '1') or ((Decomposition['decompose'] !='4' and  Decomposition['Metagene']['metagene'] == '4'))</filter>
+	</data>
+
+	
+	<!--<data name="amplitude" format="tabular" label="Amplitude Matrix" help="molecular relationships" />
+	<data name="pattern" format="tabular" label="Pattern Matrix" help="sample relationships" />
+	<data name="statistics" format="pdf" label="statistics analysis of the decomposition" help="statistics analysis of the decomposition" >
+		<filter>Decomposition['decompose'] == '1' or Decomposition['decompose'] == '2' or Decomposition['decompose'] == '3'</filter>
+str($Decomposition.Metagene.metagene) == "1"
+	</data>-->
+  </outputs>
+
+
+    <help>
+.. class:: infomark
+
+**What it does**
+
+This function is used to decompose gene expression matrix into a product of the amplitude matrix (AM) and pattern matrix (PM) through three algorithms:
+
+* **PCA**: principal component analysis, orthogonal decomposition (F=AX);
+
+* **ICA**: independent component analysis, independent decomposition (X=SM+E);
+
+* **NMF**: non-negative matrix factorization, dependent decomposition (V=WH+E).
+
+--------------------------------
+
+.. class:: infomark
+
+**Inputs**
+
+* **Gene expression matrix**: A gene expression matrix (genes in rows and individual samples in columns).
+
+* **Metagene number**: The number of metagenes which can be specified by users.
+
+---------------------------------
+
+.. class:: infomark
+
+**Outputs**
+
+* **Statistics analysis of the decomposition**
+
+  .. image:: static/decompose_statistics.jpg
+   :width: 500 px
+   :scale: 120 %   
+   :align: center
+
+| 
+
+* **Amplitude matrix**
+
+  .. csv-table:: 
+   :header: " ", "Metagene1", "Metagene2", "Metagene3", "Metagene4"
+   :widths: 15, 10, 10, 10, 10
+
+   "Zm00001d053636", 0.080, -0.889, 1.504, 2.029
+   "Zm00001d053632", 1.338, 0.729, -0.113, -0.049
+   "Zm00001d053630", -0.465, -0.229, -0.247, -0.206
+   "Zm00001d053635", -1.674, 0.036, -0.047, -0.494
+
+|
+
+
+
+* **Pattern matrix**
+
+  .. csv-table:: 
+   :header: " ", "Metagene1", "Metagene2", "Metagene3", "Metagene4"
+   :widths: 15, 10, 10, 10, 10
+
+   "Sample1", -2.081, 0.663, -0.594, -0.711
+   "Sample2", -2.114, 0.711, -0.597, -0.757
+   "Sample3", -2.189, 0.630, -0.617, -0.745
+   "Sample4", -2.185, 0.671, -0.603, -0.719
+
+|
+
+
+-------------
+
+.. class:: warningmark
+
+**Note**
+
+* The elapsed time increase with increase of the data size.
+
+</help>
+<citations>
+	<citation type="bibtex">@article{helwig2015ica,
+		title={ica: Independent Component Analysis},
+		author={Helwig, Nathaniel E},
+		journal={URL https://CRAN. R-project. org/package= ica. R package version},
+		pages={1--0},
+		year={2015}}
+	</citation><!--ICA-->
+</citations>
+
+
+</tool>
+

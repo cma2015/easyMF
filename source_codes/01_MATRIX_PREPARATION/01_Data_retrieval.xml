@@ -1,0 +1,153 @@
+<tool id="data_retrieval" name="Data Retrieval" version="17.09">
+<description>
+</description>
+<command>
+	
+	#if $data_type.name == "genome"
+	
+		Rscript ${__tool_directory__}/01_Obtain_Genome_Sequences_and_Annotation.R --input1 "plants" --input2 $data_type.version --input3 $data_type.species --input4 $data_type.genome_data_type
+			
+			#if $data_type.genome_data_type == "Both"
+			
+				--output1 $genome_both --output2 $gtf_both
+			
+			#elif $data_type.genome_data_type == "Genome"
+			
+				--output1 $genome_single
+				
+			#elif $data_type.genome_data_type == "GTF"
+			
+				--output1 $gtf_single
+			
+			#end if
+			
+			;
+	
+	#elif $data_type.name == "rnaseq"
+	
+		bash ${__tool_directory__}/01_Obtain_RNA-Seq_data.sh $data_type.sample_type.sratoolkit_or_wget $raw_rnaseq
+		
+			#if $data_type.sample_type.sratoolkit_or_wget == "sratoolkit"
+
+				$data_type.sample_type.data_ID 
+
+			#elif $data_type.sample_type.sratoolkit_or_wget == "wget"
+
+				$data_type.sample_type.data_ftp  
+
+			#end if
+					
+		;
+		
+	#end if
+	
+</command>
+
+<inputs>
+	<conditional name="data_type">
+		<param name="name" type="select" label="Genome or RNA-Seq">
+			<option value="genome">Obtain Genome Sequences and Annotation</option>
+			<option value="rnaseq">Obtain RNA-Seq data</option>
+		</param>
+		<when value="genome">
+			
+					<param name="species" type="select" value="Choose" label="Select a species" help="">
+						<options from_data_table="EnsemblPlants" >
+							<filter type="sort_by" column="0"/>
+							<validator type="no_options" message="No indexes are available for the selected input dataset"/>
+						</options>
+					</param>	
+				
+			<param name="version" type="select" label="Database version" help="">
+				<options from_data_table="ensembl_plant_version">
+				<validator type="no_options" message="No indexes are available for the selected input dataset"/>
+				</options>
+			</param>
+			<param name="genome_data_type" type="select" label="Data type" multiple="false" display="radio">
+				<option value="Genome">Genome sequence (FASTA)</option>
+				<option value="GTF">Genome annotation (GTF)</option>
+				<!--<option value="Both">Genome sequence (FASTA) and genome annotation (GTF)</option>-->
+			</param>
+		</when>
+		
+		<when value="rnaseq">
+			<conditional name="sample_type">
+
+				<param name="sratoolkit_or_wget" type="select" label="Fetch data through data ID or ftp address" multiple="false" display="radio">
+					<option value="sratoolkit" selected="true">Fetch data through data ID</option>
+					<option value="wget">Fetch data through data address</option>
+				</param>
+				<when value="sratoolkit">
+					<param name="data_ID" type="data" label="Accession IDs of RNA-Seq data" />
+				</when>
+				<when value="wget">
+					<param name="data_ftp" type="data" label="HTTP/FTP addresses of RNA-Seq data" />			
+				</when>	
+			</conditional>
+		</when>
+	</conditional>
+	
+	
+	
+</inputs>  
+  
+<stdio>
+	<exit_code range="1:" level="fatal" description="Error"/>
+</stdio>
+ 
+<outputs>
+	<data name="genome_single" label="Reference genome sequence">
+		<filter>data_type['name'] == "genome" and data_type['genome_data_type'] == "Genome"</filter>
+	</data>
+	<data name="gtf_single" label="Reference genome annotation">
+		<filter>data_type['name'] == "genome" and data_type['genome_data_type'] == "GTF"</filter>
+	</data>
+	<data name="genome_both" label="Reference genome sequence">
+		<filter>data_type['name'] == "genome" and data_type['genome_data_type'] == "Both"</filter>
+	</data>
+	<data name="gtf_both" label="Reference genome annotation">
+		<filter>data_type['name'] == "genome" and data_type['genome_data_type'] == "Both"</filter>
+	</data>
+	
+	<data name="raw_rnaseq" label="Raw RNA-Seq data">
+		<filter>data_type['name'] == "rnaseq"</filter>
+	</data>
+	
+</outputs>
+
+
+<help>
+.. class:: infomark
+
+**What it does**
+    
+This function can be used to retrieve **Genome sequences** and **Genome annotation** from Ensembl Plants (https://plants.ensembl.org/index.html), **RNA-Seq data** from NCBI (National Center for Biotechnology Information; https://www.ncbi.nlm.nih.gov/) GEO (Gene Expression Omnibus) or SRA (Short Read Archive) databases.
+
+.. class:: infomark
+
+**Inputs**
+
+**Obtain Genome Sequences and Annotation** is used to retrive **Genome sequences** and **Genome annotation**.
+
+ Users can obtain genome sequences and annotation through selecting **Species**, **Database version**, and **Data type**.
+
+**Obtain RNA-Seq data** in option **Genome or RNA-Seq** is used to retieve **RNA-Seq data**.
+
+  easyMF provides two methods to automatically fetch RNA-Seq data using NCBI’s tool *sratoolkit (version 2.3.5-2)* for accession IDs or using *wget* for HTTP/FTP addresses.
+
+  When selecting **Fetch data through data ID**, **Accession IDs of RNA-Seq data** allows a list of accession IDs of RNA-Seq data.
+
+  When selecting **Fetch data through ftp address**, **HTTP/FTP addresses of RNA-Seq data** allows a list of HTTP/FTP addresses of RNA-Seq data.
+
+.. class:: infomark
+
+**Outputs**
+
+* **Reference genome sequence**
+
+* **Reference genome annotation**
+
+* **Raw RNA-Seq data**
+</help>
+
+</tool>

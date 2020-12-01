@@ -1,0 +1,59 @@
+# Table used for listing simple BIOM display servers
+#<name>	<id>	<version>
+Aegilops tauschii genes (ASM34733v1)	atauschii_eg_gene	ASM34733v1
+Amborella trichopoda genes (AMTR1.0)	atrichopoda_eg_gene	AMTR1.0
+Arabidopsis lyrata genes (v.1.0)	alyrata_eg_gene	v.1.0
+Arabidopsis thaliana genes (TAIR10)	athaliana_eg_gene	TAIR10
+Beta vulgaris genes (RefBeet-1.2.2)	bvulgaris_eg_gene	RefBeet-1.2.2
+Brachypodium distachyon genes (Brachypodium_distachyon_v3.0)	bdistachyon_eg_gene	Brachypodium_distachyon_v3.0
+Brassica napus genes (AST_PRJEB5043_v1)	bnapus_eg_gene	AST_PRJEB5043_v1
+Brassica oleracea genes (BOL)	boleracea_eg_gene	BOL
+Brassica rapa genes (Brapa_1.0)	brapa_eg_gene	Brapa_1.0
+Chlamydomonas reinhardtii genes (Chlamydomonas_reinhardtii_v5.5)	creinhardtii_eg_gene	Chlamydomonas_reinhardtii_v5.5
+Chondrus crispus genes (ASM35022v2)	ccrispus_eg_gene	ASM35022v2
+Corchorus capsularis genes (CCACVL1_1.0)	ccapsularis_eg_gene	CCACVL1_1.0
+Cucumis sativus genes (ASM407v2)	csativus_eg_gene	ASM407v2
+Cyanidioschyzon merolae genes (ASM9120v1)	cmerolae_eg_gene	ASM9120v1
+Daucus carota genes (ASM162521v1)	dcarota_eg_gene	ASM162521v1
+Dioscorea rotundata genes (TDr96_F1_Pseudo_Chromosome_v1.0)	drotundata_eg_gene	TDr96_F1_Pseudo_Chromosome_v1.0
+Galdieria sulphuraria genes (ASM34128v1)	gsulphuraria_eg_gene	ASM34128v1
+Glycine max genes (Glycine_max_v2.0)	gmax_eg_gene	Glycine_max_v2.0
+Gossypium raimondii genes (Graimondii2_0)	graimondii_eg_gene	Graimondii2_0
+Helianthus annuus genes (HanXRQr1.0)	hannuus_eg_gene	HanXRQr1.0
+Hordeum vulgare genes (IBSC v2)	hvulgare_eg_gene	IBSC v2
+Leersia perrieri genes (Lperr_V1.4)	lperrieri_eg_gene	Lperr_V1.4
+Lupinus angustifolius genes (LupAngTanjil_v1.0)	langustifolius_eg_gene	LupAngTanjil_v1.0
+Manihot esculenta genes (Manihot esculenta v6)	mesculenta_eg_gene	Manihot esculenta v6
+Medicago truncatula genes (MedtrA17_4.0)	mtruncatula_eg_gene	MedtrA17_4.0
+Musa acuminata genes (ASM31385v1)	macuminata_eg_gene	ASM31385v1
+Nicotiana attenuata genes (NIATTr2)	nattenuata_eg_gene	NIATTr2
+Oryza barthii genes (O.barthii_v1)	obarthii_eg_gene	O.barthii_v1
+Oryza brachyantha genes (Oryza_brachyantha.v1.4b)	obrachyantha_eg_gene	Oryza_brachyantha.v1.4b
+Oryza glaberrima genes (Oryza_glaberrima_V1)	oglaberrima_eg_gene	Oryza_glaberrima_V1
+Oryza glumipatula genes (Oryza_glumaepatula_v1.5)	oglumipatula_eg_gene	Oryza_glumaepatula_v1.5
+Oryza longistaminata genes (O_longistaminata_v1.0)	olongistaminata_eg_gene	O_longistaminata_v1.0
+Oryza meridionalis genes (Oryza_meridionalis_v1.3)	omeridionalis_eg_gene	Oryza_meridionalis_v1.3
+Oryza nivara genes (Oryza_nivara_v1.0)	onivara_eg_gene	Oryza_nivara_v1.0
+Oryza punctata genes (Oryza_punctata_v1.2)	opunctata_eg_gene	Oryza_punctata_v1.2
+Oryza rufipogon genes (OR_W1943)	orufipogon_eg_gene	OR_W1943
+Oryza sativa Indica Group genes (ASM465v1)	oindica_eg_gene	ASM465v1
+Oryza sativa Japonica Group genes (IRGSP-1.0)	osativa_eg_gene	IRGSP-1.0
+Ostreococcus lucimarinus genes (ASM9206v1)	olucimarinus_eg_gene	ASM9206v1
+Phaseolus vulgaris genes (PhaVulg1_0)	pvulgaris_eg_gene	PhaVulg1_0
+Physcomitrella patens genes (Phypa V3)	ppatens_eg_gene	Phypa V3
+Populus trichocarpa genes (Pop_tri_v3)	ptrichocarpa_eg_gene	Pop_tri_v3
+Prunus persica genes (Prunus_persica_NCBIv2)	ppersica_eg_gene	Prunus_persica_NCBIv2
+Selaginella moellendorffii genes (v1.0)	smoellendorffii_eg_gene	v1.0
+Setaria italica genes (Setaria_italica_v2.0)	sitalica_eg_gene	Setaria_italica_v2.0
+Solanum lycopersicum genes (SL2.50)	slycopersicum_eg_gene	SL2.50
+Solanum tuberosum genes (SolTub_3.0)	stuberosum_eg_gene	SolTub_3.0
+Sorghum bicolor genes (Sorghum_bicolor_NCBIv3)	sbicolor_eg_gene	Sorghum_bicolor_NCBIv3
+Theobroma cacao genes (Theobroma_cacao_20110822)	tcacao_eg_gene	Theobroma_cacao_20110822
+Trifolium pratense genes (Trpr)	tpratense_eg_gene	Trpr
+Triticum aestivum genes (IWGSC)	taestivum_eg_gene	IWGSC
+Triticum dicoccoides genes (WEWSeq v.1.0)	tdicoccoides_eg_gene	WEWSeq v.1.0
+Triticum urartu genes (ASM34745v1)	turartu_eg_gene	ASM34745v1
+Vigna angularis genes (Vigan1.1)	vangularis_eg_gene	Vigan1.1
+Vigna radiata genes (Vradiata_ver6)	vradiata_eg_gene	Vradiata_ver6
+Vitis vinifera genes (12X)	vvinifera_eg_gene	12X
+Zea mays genes (B73 RefGen_v4)	zmays_eg_gene	B73 RefGen_v4

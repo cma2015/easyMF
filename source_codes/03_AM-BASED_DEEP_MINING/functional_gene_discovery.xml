@@ -1,0 +1,151 @@
+<tool id="functional_gene_discovery" name="Functional Gene Discovery" version="17.09">
+  <description>
+  </description>
+  <requirements>
+      <requirement type="package" version="3.4.2">R</requirement>
+      <requirement type="package" version="1.2.0">getopt</requirement>
+  </requirements>
+
+  <command>	
+	 Rscript ${__tool_directory__}/functional_gene_discovery.R
+
+	--input1
+		 $amplitude 
+	--input2
+		$GeneSet.geneset
+	--input3
+			$cpu
+	--input4
+	  $GeneSet.dataset
+	--pdf1
+	  $AUSR
+	--output1
+	  $candidates
+;
+	
+</command>
+<inputs>
+	<param name="amplitude" type="data" label="Amplitude matrix" />
+	<conditional name="GeneSet">
+		<param name="geneset" type="select" label="Functional genes" multiple="false" display="radio">
+				<option value="1">Enter functional gene IDs</option>
+				<option value="2" selected="true">Upload a file with functional gene IDs from local disk</option>
+		</param>
+		<when value="1">
+			<param name="dataset" type="text" value="Zm00001d053636,Zm00001d053632,Zm00001d053630,Zm00001d053635,Zm00001d053633" area="true" label="Functional gene IDs" />
+		</when>
+		<when value="2">
+			<param name="dataset" type="data" label="Functional gene IDs" />
+		</when>
+
+	</conditional>
+	<param name="cpu" type="integer" value="3" label="Threads" max="4" min="1" />
+  </inputs>
+  <stdio><exit_code range="1:" level="fatal" description="Error"/></stdio>
+ <outputs>
+
+	<data name="AUSR" format="pdf" label="Area under the self-ranked curve (AUSR) plot" help="AUSR plot of the gene set through LOOCV" >
+	</data>
+	<data name="candidates" format="tabular" label="Gene score and rank" help="New candidates prioritization" >
+	</data>
+
+  </outputs>
+
+
+    <help>
+.. class:: infomark
+
+**What it does**
+
+This function is used to calculate gene score and rank genes based on the probability of their association with a specific biology function.
+
+-------------
+
+.. class:: infomark
+
+**Inputs**
+
+* **Amplitude matrix**: An amplitude matrix generated from the gene expression matrix through the function **Matrix Factorization**.
+
+
+  .. csv-table::
+   :header: " ", "Metagene1", "Metagene2", "Metagene3", "Metagene4"
+   :widths: 15, 10, 10, 10, 10
+
+   "Zm00001d053636", 0.080, -0.889, 1.504, 2.029
+   "Zm00001d053632", 1.338, 0.729, -0.113, -0.049
+   "Zm00001d053630", -0.465, -0.229, -0.247, -0.206
+   "Zm00001d053635", -1.674, 0.036, -0.047, -0.494
+
+|
+
+
+
+
+* **Functional genes**: A set of genes associated with a specific biology function, such as enriched in a phenotype of interest. If users select **Upload a file with functional gene IDs from local disk**, a newline-delimited file containing gene IDs needs to be provided; if users select **Enter functional gene IDs**, gene IDs need to be separated by comma. Here's an example:
+
+  +-------------------+----------------------------------------------------------------------------+
+  | Newline-delimited | Comma separated                                                            |
+  +===================+============================================================================+
+  | | Zm00001d053636  | Zm00001d053636,Zm00001d053632,Zm00001d053630,Zm00001d053635,Zm00001d053633 |
+  | | Zm00001d053632  |                                                                            |
+  | | Zm00001d053630  |                                                                            |
+  | | Zm00001d053635  |                                                                            |
+  | | Zm00001d053633  |                                                                            |
+  +-------------------+----------------------------------------------------------------------------+
+
+|
+
+
+
+-------------
+
+
+.. class:: infomark
+
+**Outputs**
+
+* **Area under the self-ranked curve (AUSR) plot**: A plot of ratio (*Ra*) along the *y* axis versus self-rank along the *x* axis, where *rank* represents the ranks of all positive genes, *Ra(l)* represents the ratio of ranks lower than a pre-defined level of *l*.
+
+  .. image:: static/AUSR.jpg
+   :width: 500 px
+   :scale: 50 %
+   :align: center
+
+|
+
+* **Gene score and rank**: Summary of gene prioritization result containing score and rank information of each gene.
+
+  +------------------+--------+-------+-------------+
+  |    Gene ID       |  Score | Rank  | Annotation  |
+  +==================+========+=======+=============+
+  | Zm00001d053636   | 1      | 1     | Label       |
+  +------------------+--------+-------+-------------+
+  | Zm00001d053632   | 0.888  | 3     | Label       |
+  +------------------+--------+-------+-------------+
+  | Zm00001d004839   | 1      | 1     | Unlabel     |
+  +------------------+--------+-------+-------------+
+  | Zm00001d006510   | 0.902  | 2     | Unlabel     |
+  +------------------+--------+-------+-------------+
+
+|
+
+
+
+
+  </help>
+  <citations>
+	<citation type="bibtex">@article{fehrmann2015gene,
+		title={Gene expression analysis identifies global gene dosage sensitivity in cancer},
+		author={Fehrmann, Rudolf SN and Karjalainen, Juha M and Krajewska, Ma{\l}gorzata and Westra, Harm-Jan and Maloney, David and Simeonov, Anton and Pers, Tune H and Hirschhorn, Joel N and Jansen, Ritsert C and Schultes, Erik A and others},
+		journal={Nature genetics},
+		volume={47},
+		number={2},
+		pages={115--125},
+		year={2015},
+		publisher={Nature Publishing Group}
+		}
+	</citation><!--ICA-->
+</citations>
+</tool>
+

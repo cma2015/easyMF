@@ -1,0 +1,97 @@
+<tool id="expression_quality_control" name="Expression Quality Control" version="17.09">
+<description>
+</description>
+<command>
+	
+	bash ${__tool_directory__}/03_Expression_matrix_QC.sh -R ${raw_expression_matrix} -E ${HQ_expression_matrix}
+		
+			#for $op in $operations
+				#if $op.operation.name == "genes"
+					-g $op.operation.name -e $op.operation.minExp -N $op.operation.minExpNum
+				#end if
+				#if $op.operation.name == "samples"
+					-s $op.operation.name -r $op.operation.rethreshold -l $op.operation.lowthreshold
+				#end if
+				#if $op.operation.name == "batchEffects"
+					-b $op.operation.name -S $op.operation.sampleInfo
+				#end if
+			#end for 
+			; 
+
+</command>
+
+<inputs>
+	<param name="raw_expression_matrix" type="data" label="Raw gene expression matrix" />
+	<repeat name="operations" title="Expression matrix QC" min="1">
+		<conditional name="operation">
+			<param name="name" type="select" label="Select QC type to perform">
+				<option value="genes">Remove lowly expressed genes</option>
+				<option value="samples">Remove outlier samples</option>
+				<option value="batchEffects">Remove batch effects</option>
+			</param>
+			<when value="genes">
+				<param name="minExp" type="integer" label="Expression value of expressed genes" value="1" />
+				<param name="minExpNum" type="integer" label="Minimum sample number" value="3" />
+			</when>
+			<when value="samples">
+				<param name="rethreshold" type="float" label="Threshold of potential repeat samples"  value="0.999" />
+				<param name="lowthreshold" type="float" label="Threshold of low-quality samples"  value="0.7" />
+			</when>
+			<when value="batchEffects">
+				<param name="sampleInfo" type="data" label="Sample information" />
+			</when>
+		</conditional>
+	</repeat>
+
+</inputs>
+
+<stdio>
+	<exit_code range="1:"  level="fatal" description="Error Running Matrix Preparation" />
+</stdio>
+<outputs>
+	<data name="HQ_expression_matrix" format="txt" label="High-quality gene expression matrix" />
+</outputs>
+
+<help>
+.. class:: infomark
+
+**What it does**
+
+This function can be used to implement quality control on raw gene expression matrix generated from the funtcion **Expression Matrix Generation** with **three levels**, including removing *lowly expressed genes*, *outlier samples*, and *batch effects*.
+
+----------------
+
+.. class:: infomark
+
+**Inputs**
+
+* **Raw gene expression matrix**: A gene expression matrix (genes in rows and individual samples in columns).
+
+If users choose the option **Remove batch effects**,
+
+* **Sample information**: RNA-Seq samples with batch information. In the text, the first column presents sample IDs, and the second column presents batch information distinguished with Arabic numerals.
+
+  +------------+-----------------------+
+  | SRR1765337 |           1           |
+  +------------+-----------------------+
+  | SRR1765338 |           1           |
+  +------------+-----------------------+
+  | SRR1765379 |           2           |
+  +------------+-----------------------+
+  | SRR1765380 |           2           |
+  +------------+-----------------------+
+
+----------------
+
+.. class:: infomark
+
+**Output**
+
+* **High-quality gene expression matrix**: A high-quality gene expression matrix (genes in rows and individual samples in columns).
+
+</help>
+<citations>
+	<citation type="doi">10.1093/bioinformatics/bts034</citation><!--sva-->
+</citations>
+
+</tool>

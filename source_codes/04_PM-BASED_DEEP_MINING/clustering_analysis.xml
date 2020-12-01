@@ -1,0 +1,176 @@
+<tool id="clustering_analysis" name="Sample Clustering Analysis" version="17.09">
+<description>
+  </description>
+  <requirements>
+      <requirement type="package" version="3.4.2">R</requirement>
+      <requirement type="package" version="1.2.0">getopt</requirement>
+  </requirements>
+
+  <command>	
+	Rscript  ${__tool_directory__}/clustering_analysis.R 
+
+	--input1
+		$pattern
+	--input2
+        $model   
+    --pdf1 
+        $cluster
+    --output1
+        $information
+;
+</command>
+ <inputs>	    
+    <param name="pattern" type="data" label="Pattern matrix" />
+    <param name="model" type="select" label="Cluster algorithms" multiple="true" display="checkboxes" >
+                <option value="1" selected="true">mclust</option>
+                <option value="2">apcluster</option>
+                <option value="3">SSE</option>
+                <option value="4">fpc</option>
+                <option value="5">vegan</option>
+                <option value="6">gap</option>               
+    </param>
+
+  </inputs>  
+	 <stdio><exit_code range="1:" level="fatal" description="Error"/></stdio> 
+  <outputs>
+    <data name="cluster" format="pdf" label="Cluster visulization" help="dot plot of the cluster" />
+    <data name="information" format="tabular" label="Cluster information" help="the cluster of the samples in each selected method" />
+  </outputs>
+
+
+    <help>
+.. class:: infomark
+
+**What it does**
+
+This function can cluster samples automatically based on the pattern matrix.
+
+-------------
+
+.. class:: infomark
+
+**Inputs**
+
+* **pattern matrix**: A pattern matrix generated from the gene expression matrix through the function **Matrix Factorization**.
+
+  .. csv-table:: 
+   :header: " ", "NC1", "NC2", "NC3", "NC4"
+   :widths: 15, 10, 10, 10, 10
+
+   "Sample1", -62.760, 48.076, -105.296, 49.677
+   "Sample2", -68.101, 43.129, -112.948, 47.088
+   "Sample3", -58.931, 37.168, -112.116, 55.410
+   "Sample4", -63.240, 35.962, -108.744, 50.796
+
+|
+
+
+* **cluster model**: The automatically cluster model. Currently, easyMF provides six options: **mclust**, **apcluster**, **SSE**, **fpc**, **vegan**, and **gap**.
+
+  **mclust**: mclust implements model-based clustering using parameterized finite Gaussian mixture models. Models are estimated by Expectation Maximization (EM) algorithm initialized through hierarchical model-based agglomerative clustering. The optimal model is then selected according to Bayesian information criterion (BIC).
+
+  **apcluster**: affinity propagation clusters data using a set of real-valued pairwise data point similarities as input. It iterates and searches for clusters maximizing an objective net similarity function.
+
+  **SSE**: SSE calculates sum of square error based on k-means algorithm, and selects the best number of clusters based on inflection point of the residuals.
+
+  **fpc**: fpc optimums average silhouette width, partitioning around medoids with estimation of cluster number.
+
+  **vegan**: vegan is a cascade k-means partitioning using a range of *k* values. It generates the optimal cluster based on Calinski-Harabasz criterion.
+
+  **gap**: gap calculates a goodness of clustering measure of the gap statistic for estimating the number of clusters.
+
+-------------
+
+
+.. class:: infomark
+
+**Outputs**
+
+* **cluster visulization** : A dot plot of the clustering result.
+
+  .. image:: static/cluster.jpg
+    :width: 500 px
+    :scale: 100 %   
+    :align: center
+
+| 
+
+
+* **cluster information**: Sample cluster results for specific algorithms.
+
+  .. csv-table:: 
+   :header: " ", "mclust", "apcluster"
+   :widths: 15, 10, 10
+
+   "Sample1", 1, 18
+   "Sample7", 7, 18
+   "Sample11", 3, 21
+   "Sample15", 7, 14
+
+
+|
+
+  </help>
+
+<citations>
+	<citation type="bibtex">@article{scrucca2016mclust,
+		title={mclust 5: clustering, classification and density estimation using Gaussian finite mixture models},
+		author={Scrucca, Luca and Fop, Michael and Murphy, T Brendan and Raftery, Adrian E},
+		journal={The R journal},
+		volume={8},
+		number={1},
+		pages={289},
+		year={2016},
+		publisher={NIH Public Access}
+		}
+	</citation><!--mclust-->
+	
+	<citation type="bibtex">@article{bodenhofer2011apcluster,
+		title={APCluster: an R package for affinity propagation clustering},
+		author={Bodenhofer, Ulrich and Kothmeier, Andreas and Hochreiter, Sepp},
+		journal={Bioinformatics},
+		volume={27},
+		number={17},
+		pages={2463--2464},
+		year={2011},
+		publisher={Oxford University Press}
+		}
+	</citation><!--APCluster-->
+	
+	<citation type="bibtex">@misc{hennig2013fpc,
+		title={fpc: Flexible procedures for clustering. R package version 2.1-5},
+		author={Hennig, Christian},
+		year={2013}
+		}
+	</citation><!--fpc-->
+	
+	<citation type="bibtex">@article{dixon2003vegan,
+		title={VEGAN, a package of R functions for community ecology},
+		author={Dixon, Philip},
+		journal={Journal of Vegetation Science},
+		volume={14},
+		number={6},
+		pages={927--930},
+		year={2003},
+		publisher={Wiley Online Library}
+		}
+	</citation><!--VEGAN-->
+	
+	<citation type="bibtex">
+		@article{maechler2012cluster,
+		title={Cluster: cluster analysis basics and extensions},
+		author={Maechler, Martin and Rousseeuw, Peter and Struyf, Anja and Hubert, Mia and Hornik, Kurt and others},
+		journal={R package version},
+		volume={1},
+		number={2},
+		pages={56},
+		year={2012}
+		}
+	</citation><!--GAP-->
+</citations>
+
+
+
+
+</tool>
+
