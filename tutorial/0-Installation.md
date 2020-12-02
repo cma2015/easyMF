@@ -6,7 +6,7 @@ easyMF is a user-friendly web platform that aims to facilitate biological discov
 
 - easyMF project is hosted on https://github.com/cma2015/easyMF.
 - easyMF docker image is available in https://hub.docker.com/r/malab/easymf.
-- easyMF demo server can be accessed via [http://easyMF.omicstudio.cloud](http://easymf.omicstudio.cloud/).
+- easyMF demo server can be accessed via [http://easymf.omicstudio.cloud](http://easymf.omicstudio.cloud/).
 - The following part shows installation of easyMF docker image and detailed documentation for each function in easyMF.
 
 
