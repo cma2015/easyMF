@@ -27,7 +27,7 @@
 - Wenlong Ma, Siyuan Chen, Jingjing Zhai, Yuhong Qi, Shang Xie, Minggui Song, Chuang Ma, easyMF: a visual analytics platform for matrix factorization-based biological discovery from large-scale transcriptome data (Submitted).
 
 ## How to access help
-* For comments/suggestions/bug reports, please leave a message at Github [issues](<https://github.com/cma2015/issues>), or contact: __Wenlong Ma__ <mawenlong_nwsuaf@163.com> or __Siyuan Chen__ <chenzhuod@gmail.com> 
+* For comments/suggestions/bug reports, please leave a message at Github [issues](<https://github.com/cma2015/easyMF/issues>), or contact: __Wenlong Ma__ <mawenlong_nwsuaf@163.com> or __Siyuan Chen__ <chenzhuod@gmail.com> 
 
 
 
