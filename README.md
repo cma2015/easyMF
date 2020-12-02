@@ -13,6 +13,7 @@
 
 <div align="center"><img src="https://github.com/cma2015/easyMF/blob/master/tutorial/easyMF_images/Figure%201_Overview%20of%20easyMF_20201028.png" width = "80%" alt="TAMF" align=center/></div>
 
+
 ## How to use easyMF
 
 - Test data and tutorial of deepEA are presented at http://easymf.omicstudio.cloud.
