@@ -70,4 +70,4 @@ $ bash /home/galaxy/run.sh
 
 Then, easyMF local server can be accessed via http://localhost:8080
 
-![00](./easyMF_images/00_welcome_to_easyMF.png)
+![00](https://github.com/cma2015/easyMF/blob/master/tutorial/easyMF_images/00_welcome_to_easyMF.png)
