@@ -1,7 +1,7 @@
 
 ## [easyMF: a visual analytics platform for matrix factorization-based biological discovery from large-scale transcriptome data](http://omicstudio.cloud:4002/)
 
-[![Docker Repository on Quay](https://quay.io/repository/bgruening/galaxy-rna-workbench/status "Docker Repository on Quay")](https://hub.docker.com/r/malab/easymf)
+<a href="http://www.omicstudio.cloud:4002/" target="_blank"><img src="https://img.shields.io/badge/Web_server-ready-red.svg"></a><a href="https://hub.docker.com/r/malab/easymf" target="_blank"><img src="https://img.shields.io/badge/Docker_image-ready-red.svg" target="_blank"></a><a href="https://hub.docker.com/r/malab/easymf" target="_blank"><img src="https://img.shields.io/docker/pulls/malab/easymf"></a><a href="https://github.com/cma2015/easyMF" target="_blank"><img src="https://img.shields.io/badge/Source%20codes-support-blue"></a><a href="http://omicstudio.cloud:4002/static/test_data/Test_data.rar" target="_blank"><img src="https://img.shields.io/badge/Test_data-support-blue.svg"></a>
 
 ## Introduction
 - easyMF is a user-friendly web platform that aims to facilitate biological discovery from large-scale transcriptome data through matrix factorization.
