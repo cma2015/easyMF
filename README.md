@@ -1,5 +1,5 @@
 
-## [easyMF: a visual analytics platform for matrix factorization-based biological discovery from large-scale transcriptome data](http://omicstudio.cloud:4002/)
+## [easyMF: A Web Platform for Matrix Factorization-based Biological Discovery from Large-scale Transcriptome Data](http://omicstudio.cloud:4002/)
 
 <a href="http://www.omicstudio.cloud:4002/" target="_blank"><img src="https://img.shields.io/badge/Web_server-ready-red.svg"></a><a href="https://hub.docker.com/r/malab/easymf" target="_blank"><img src="https://img.shields.io/badge/Docker_image-ready-red.svg" target="_blank"></a><a href="https://hub.docker.com/r/malab/easymf" target="_blank"><img src="https://img.shields.io/docker/pulls/malab/easymf"></a><a href="https://github.com/cma2015/easyMF" target="_blank"><img src="https://img.shields.io/badge/Source%20codes-support-blue"></a><a href="http://omicstudio.cloud:4002/static/test_data/Test_data.rar" target="_blank"><img src="https://img.shields.io/badge/Test_data-support-blue.svg"></a>
 
@@ -25,7 +25,7 @@
 - Web server and Docker image of easyMF were released for the first time.
 
 ## How to cite easyMF
-- Wenlong Ma, Siyuan Chen, Jingjing Zhai, Yuhong Qi, Shang Xie, Minggui Song, Chuang Ma, easyMF: a visual analytics platform for matrix factorization-based biological discovery from large-scale transcriptome data (Submitted).
+- Wenlong Ma, Siyuan Chen, Jingjing Zhai, Yuhong Qi, Shang Xie, Minggui Song, Chuang Ma, easyMF: a web platform for matrix factorization-based biological discovery from large-scale transcriptome data. https://doi.org/10.1101/2020.12.21.405563
 
 ## How to access help
 * For comments/suggestions/bug reports, please leave a message at Github [issues](<https://github.com/cma2015/easyMF/issues>), or contact: __Wenlong Ma__ <mawenlong_nwsuaf@163.com> or __Siyuan Chen__ <chenzhuod@gmail.com> 
