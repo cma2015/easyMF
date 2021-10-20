@@ -1,0 +1,196 @@
+<tool id="spatial_course_analysis" name="Spatial Transcriptome Analysis" version="17.09">
+  <description>
+
+  </description>
+  <requirements>
+      <requirement type="package" version="3.4.2">R</requirement>
+      <requirement type="package" version="1.2.0">getopt</requirement>
+  </requirements>
+
+  <command>	
+	Rscript ${__tool_directory__}/spatial_course_analysis.R
+    --input1
+	$geneexpression
+    --input2
+        $amplitude
+    --input3
+        $pattern
+    --input4
+        $tissue
+    --input5
+        $species_type.species
+    --input6
+        $cpu
+    --output1 
+        $significant
+    --output2
+        $significantGO
+    --pdf1
+        $speficicmodule 
+;
+
+</command>
+
+  <inputs>	
+    <param name="geneexpression" type="data" label="Gene expression matrix" />
+    <param name="amplitude" type="data" label="Amplitude matrix" />
+    <param name="pattern" type="data" label="Pattern matrix" />
+    <param name="tissue" type="data" label="Tissue information of the samples" />
+    <param name="cpu" type="text" value="2" label="Threads" />
+
+   <conditional name="species_type">
+				<param name="species_name" type="select" label="Species type">
+					<option value="plants">Plants</option>
+				
+					
+					
+					
+				</param>
+				<when value="plants">
+					<param name="species" type="select" value="Choose" label="Select a specie" help="">
+						<options from_data_table="EnsemblPlants_gene" >
+							<filter type="sort_by" column="0"/>
+							<validator type="no_options" message="No indexes are available for the selected input dataset"/>
+						</options>
+					</param>	
+				</when>
+				
+				
+			</conditional>
+    
+  </inputs>  
+	 <stdio><exit_code range="1:" level="fatal" description="Error"/></stdio> 
+  <outputs>
+    <data name="significant" format="tabular" label="Signature genes of each module" help="significant genes of each module" />
+    <data name="significantGO" format="tabular" label="GO enrichment analysis of each module" help="GO enrichment analysis of each module" />
+     <data name="speficicmodule" format="pdf" label="Visulization of the speficic module" help="visulization of the speficic module along the stages" />
+  </outputs>
+
+
+    <help>
+.. class:: infomark
+
+**What it does**
+
+This function is used to detect functional modules and identity signature genes 
+
+-------------
+
+.. class:: infomark
+
+**Inputs**
+
+* **Gene expression matrix**: Gene expression matrix through the function **MATRIX PREPARATION**.
+
+.. csv-table::
+   :header: " ", "Sample1", "Sample2", "Sample3", "Sample4"
+   :widths: 15, 10, 10, 10, 10
+
+   "Zm00001d027230", 0.116, 0.0336, 0.0846, 0.0656
+   "Zm00001d027231", 7.952, 1.067, 3.788, 3.027
+   "Zm00001d027232", 0.00997, 0.00337, 0, 0.00606
+   "Zm00001d027233", 0.00899, 0.00507, 0.00722, 0.00558
+
+|
+
+
+* **Amplitude matrix**: An amplitude matrix generated from the gene expression matrix through the function **MATRIX PREPARATION**.
+
+.. csv-table::
+   :header: " ", "Metagene1", "Metagene2", "Metagene3", "Metagene4"
+   :widths: 15, 10, 10, 10, 10
+
+   "Zm00001d027230", 0.356, 0.103, 0.357, 0.903
+   "Zm00001d027231", 4.310, 1.230, 7.122, 9.690
+   "Zm00001d027232", 0, 0.813, 0.0322, 0.0295
+   "Zm00001d027233", 0.0130, 0.0602, 0.0291, 0.0219
+
+|
+
+
+* **Pattern matrix**: A pattern matrix generated from the gene expression matrix through the function **MATRIX PREPARATION**.
+
+.. csv-table::
+   :header: " ", "Metagene1", "Metagene2", "Metagene3"
+   :widths: 10, 10, 10, 10
+
+   "AL", 7.194e-05, 1.349e-05, 0.442
+   "BETL", 6.484e-05, 1.638e-05, 1.778e-03
+   "CSE", 1.589e-05, 0, 1.090e-04
+   "CZ", 2.064e-05, 0, 4.796e-04
+
+|
+
+
+* **Tissue information of the samples**: Tissue information of the samples.
+
+.. csv-table::
+   :header: "Sample", "Stage"
+   :widths: 10, 10
+
+   "Sample1", "AL"
+   "Sample2", "BETL"
+   "Sample3", "CSE"
+   "Sample4", "CZ"
+
+|
+
+
+* **Threads**: The cpu number to parallelly compute.
+
+
+
+-------------
+
+
+.. class:: infomark
+
+**Outputs**
+
+* **Signature genes of each module**: Signature genes of each metagene.
+
++-----------+--------------------+------------------------------------+
+| Metagene  | Gene ID            | Gene description                   |
++===========+====================+====================================+
+| Metagene1 | Zm00001d003315     |Protein Brevis radix-like 4         |
++-----------+--------------------+------------------------------------+
+| Metagene2 | Zm00001d032906     |Sugar transport protein 3           |
++-----------+--------------------+------------------------------------+
+| Metagene3 | Zm00001d005793     |Zein-beta                           |
++-----------+--------------------+------------------------------------+
+
+|
+
+
+* **GO enrichment analysis of each module**: GO enrichment analysis of each metagene.
+
++---------+------+------------+-------------------------+---------+-----------+--------+----------+-----------------------------------------------------------------------------------------+
+|Metagene |Type  | GO         |Term                     |Annotated|Significant|Expected|elimFisher|SignificantGene                                                                          |
++=========+======+============+=========================+=========+===========+========+==========+=========================================================================================+
+|Metagene2|BP    |`GO:0070085`|glycosylation            |261      |5          |1.39    |0.01285   |Zm00001d017202;Zm00001d033748;Zm00001d043719;Zm00001d044933;Zm00001d047641               |
++---------+------+------------+-------------------------+---------+-----------+--------+----------+-----------------------------------------------------------------------------------------+
+
+|
+
+
+* **Visulization of the speficic module**: Visulization of hierarchical clustering analysis of pattern matrix.
+
+.. image:: static/spatialcourse.jpg
+    :width: 500 px
+    :scale: 80 %
+    :align: center
+
+|
+
+
+
+
+|
+
+
+  </help>
+
+
+
+</tool>
+

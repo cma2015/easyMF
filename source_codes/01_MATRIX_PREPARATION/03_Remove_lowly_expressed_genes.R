@@ -1,6 +1,3 @@
-
-
-
 library("getopt")
 
 options(stringAsfactors = F, useFancyQuotes = F)
