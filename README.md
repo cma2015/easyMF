@@ -24,8 +24,11 @@
 
 - Web server and Docker image of easyMF were released for the first time.
 
+### Oct 18, 2021
+- Web server and Docker image of easyMF were ahjusted for the second time
+
 ## How to cite easyMF
-- Wenlong Ma, Siyuan Chen, Jingjing Zhai, Yuhong Qi, Shang Xie, Minggui Song, Chuang Ma, Seed-related gene discovery from large-scale transcriptome data in maize using easyMF. Submitted
+- Wenlong Ma, Siyuan Chen, Yuhong Qi, Minggui Song, Jingjing Zhai, Ting Zhang, Shang Xie, Guifeng Wang, Chuang Ma, Seed-related gene discovery from large-scale transcriptome data in maize using easyMF. Submitted
 
 ## How to access help
 * For comments/suggestions/bug reports, please leave a message at Github [issues](<https://github.com/cma2015/easyMF/issues>), or contact: __Wenlong Ma__ <mawenlong_nwsuaf@163.com> or __Siyuan Chen__ <chenzhuod@gmail.com> 
