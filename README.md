@@ -16,7 +16,7 @@
 
 ## How to use easyMF
 
-- Test data and tutorial of deepEA are presented at http://easymf.omicstudio.cloud.
+- Test data and tutorial of easyMF are presented at http://easymf.omicstudio.cloud.
 
 ## News and updates
 
