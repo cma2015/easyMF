@@ -8,7 +8,7 @@
 - easyMF comprises three functional modules, named **Matrix Preparation**, **Matrix Factorization**, and **Deep Mining**. The **Matrix Preparation** module can perform matrix generation from raw RNA-Seq reads; the **Matrix Factorization** module can perform decompose high-dimensional gene expression matrix into low-dimensional matrices (e.g., the amplitude matrix [AM] and the pattern matrix [PM]); the **Deep Mining** module can perform gene discovery from AM and PM.
 - easyMF is equipped with the Galaxy system, allowing users to perform accessible, reproducible, collaborative and transparent analyses of large-scale transcriptome data.
 - easyMF is also powered with an advanced packaging technology, which enables compatibility and portability.
-- easyMF project is hosted on https://github.com/cma2015/easyMF, easyMF docker image is available at https://hub.docker.com/r/malab/easymf, easyMF server can be accessed via http://easymf.omicstudio.cloud.
+- easyMF project is hosted on https://github.com/cma2015/easyMF, easyMF docker image is available at https://hub.docker.com/r/malab/easymf, A demo easyMF server can be accessed via http://easymf.omicstudio.cloud.
 
 
 <div align="center"><img src="https://github.com/cma2015/easyMF/blob/master/tutorial/easyMF_images/Figure%201_Overview%20of%20easyMF_20201028.png" width = "80%" alt="TAMF" align=center/></div>
