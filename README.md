@@ -11,7 +11,7 @@
 - easyMF project is hosted on https://github.com/cma2015/easyMF, easyMF docker image is available at https://hub.docker.com/r/malab/easymf, A demo easyMF server can be accessed via http://easymf.omicstudio.cloud.
 
 
-<div align="center"><img src="https://github.com/cma2015/easyMF/blob/master/tutorial/easyMF_images/Figure%201_Overview%20of%20easyMF_20211023.tif" width = "80%" alt="TAMF" align=center/></div>
+<div align="center"><img src="https://github.com/cma2015/easyMF/blob/master/tutorial/easyMF_images/Figure%201_Overview%20of%20easyMF_20211023.png" width = "80%" alt="TAMF" align=center/></div>
 
 
 ## How to use easyMF
