@@ -1,5 +1,5 @@
 
-## [Matrix factorization-based gene discovery from large-scale transcriptome data using easyMF](http://omicstudio.cloud:4002/)
+## [easyMF: a Web Platform for Matrix Factorization-based Gene Discovery from Large-scale Transcriptome Data](http://omicstudio.cloud:4002/)
 
 <a href="http://www.omicstudio.cloud:4002/" target="_blank"><img src="https://img.shields.io/badge/Web_server-ready-red.svg"></a><a href="https://hub.docker.com/r/malab/easymf" target="_blank"><img src="https://img.shields.io/badge/Docker_image-ready-red.svg" target="_blank"></a><a href="https://hub.docker.com/r/malab/easymf" target="_blank"><img src="https://img.shields.io/docker/pulls/malab/easymf"></a><a href="https://github.com/cma2015/easyMF" target="_blank"><img src="https://img.shields.io/badge/Source%20codes-support-blue"></a><a href="http://omicstudio.cloud:4002/static/test_data/Test_data.rar" target="_blank"><img src="https://img.shields.io/badge/Test_data-support-blue.svg"></a>
 
@@ -28,7 +28,7 @@
 - Web server and Docker image of easyMF were ahjusted for the second time
 
 ## How to cite easyMF
-- Wenlong Ma, Siyuan Chen, Yuhong Qi, Minggui Song, Jingjing Zhai, Ting Zhang, Shang Xie, Guifeng Wang, Chuang Ma, Matrix factorization-based gene discovery from large-scale transcriptome data using easyMF. Submitted
+- Wenlong Ma, Siyuan Chen, Yuhong Qi, Minggui Song, Jingjing Zhai, Ting Zhang, Shang Xie, Guifeng Wang, Chuang Ma, easyMF: a Web Platform for Matrix Factorization-based Gene Discovery from Large-scale Transcriptome Data. Submitted
 
 ## How to access help
 * For comments/suggestions/bug reports, please leave a message at Github [issues](<https://github.com/cma2015/easyMF/issues>), or contact: __Wenlong Ma__ <mawenlong_nwsuaf@163.com> or __Siyuan Chen__ <chenzhuod@gmail.com> 
