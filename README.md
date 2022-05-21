@@ -28,7 +28,7 @@
 - Web server and Docker image of easyMF were ahjusted for the second time
 
 ## How to cite easyMF
-- Wenlong Ma, Siyuan Chen, Yuhong Qi, Minggui Song, Jingjing Zhai, Ting Zhang, Shang Xie, Guifeng Wang, Chuang Ma, easyMF: a Web Platform for Matrix Factorization-based Gene Discovery from Large-scale Transcriptome Data. Submitted
+- Wenlong Ma, Siyuan Chen, Yuhong Qi, Minggui Song, Jingjing Zhai, Ting Zhang, Shang Xie, Guifeng Wang, Chuang Ma, easyMF: a Web Platform for Matrix Factorization-based Gene Discovery from Large-scale Transcriptome Data. Interdisciplinary Sciences: Computational Life Sciences, 2022, doi: 10.1007/s12539-022-00522-2
 
 ## How to access help
 * For comments/suggestions/bug reports, please leave a message at Github [issues](<https://github.com/cma2015/easyMF/issues>), or contact: __Wenlong Ma__ <mawenlong_nwsuaf@163.com> or __Siyuan Chen__ <chenzhuod@gmail.com> 
